@@ -105,7 +105,7 @@ const Header = () => {
 
   return (
     <>
-      <AppBar sx={{ position: 'fixed', opacity: 0.4, backgroundColor: '#000'  }}>
+      <AppBar sx={{ position: 'fixed', opacity: 0.2, backgroundColor: '#000'  }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -139,7 +139,7 @@ const Header = () => {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={toggleDrawer(true)}
-                color="dark"
+                color="info"
               >
                 <MenuIcon />
               </IconButton>
@@ -179,10 +179,10 @@ const Header = () => {
                   <Link key={item.route} href={item.pathName}>
                     <Button
                       sx={{
-                        color: "red",
+                        color: "#fff",
                         marginLeft: "20px",
                         backgroundColor:
-                          activeButton === index ? "#f5f5f5" : "",
+                          activeButton === index ? "#00a1a1" : "",
                         "&:hover": {
                           color: "#fff",
                         },

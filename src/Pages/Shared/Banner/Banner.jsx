@@ -11,7 +11,7 @@ import './Banner.css'
 
 const Banner = () => {
   return (
-    <div style={{ width: "100%", margin: "0 auto", height: '400px' }}>
+    <div style={{ width: "100%", margin: "0 auto",}}>
       <Carousel
         showThumbs={true} // Optional: hide the thumbnail navigation
         showStatus={true} // Optional: hide the status bar
