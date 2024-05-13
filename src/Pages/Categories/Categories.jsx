@@ -46,7 +46,7 @@ const Categories = () => {
           className=""
           style={{ margin: "auto", marginTop: "100px", marginBottom: "0px" }}
         >
-          <Stack rowGap={3}>
+          <Stack rowGap={2}>
             <Typography sx={{ textAlign: "center", color: "gold" }}>
               ---From 11:00am to 10:00pm---
             </Typography>

@@ -1,4 +1,4 @@
-import { Container, Divider, Grid, Stack, Typography } from "@mui/material";
+import { Button, Container, Divider, Grid, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import Menu from "../Shared/Menu/Menu";
 
@@ -15,12 +15,12 @@ const PopularMenu = () => {
   }, []);
   return (
     <div>
-      <Container sx={{ marginBottom: '150px' }}>
+      <Container sx={{ marginBottom: '120px' }}>
         <div
           className=""
           style={{ margin: "auto", marginTop: "100px", marginBottom: "0px" }}
         >
-          <Stack rowGap={3}>
+          <Stack rowGap={2}>
             <Typography sx={{ textAlign: "center", color: "gold" }}>
               ---Check it out---
             </Typography>
@@ -44,11 +44,14 @@ const PopularMenu = () => {
           </Stack>
         </div>
         <div className="">
-          <Grid spacing={3} container alignItems={"center"} justifyContent={"center"}>
+          <Grid spacing={5} container alignItems={"center"} justifyContent={"center"}>
             {menus.map((menu) => (
               <Menu key={menu._id} menu={menu}></Menu>
             ))}
           </Grid>
+        </div>
+        <div className="" style={{ width: '140px', marginBottom: '0px',margin: 'auto', marginTop: '40px', }}>
+          <Button variant="outlined" size="large" sx={{ marginTop: '20px' }}>View All</Button>
         </div>
       </Container>
     </div>
