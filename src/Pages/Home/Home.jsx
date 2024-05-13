@@ -1,4 +1,5 @@
 import Categories from "../Categories/Categories";
+import PopularMenu from "../PopularMenu/PopularMenu";
 import Banner from "../Shared/Banner/Banner";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <>
             <Banner />
             <Categories />
+            <PopularMenu />
         </>
     );
 };
