@@ -105,7 +105,7 @@ const Header = () => {
 
   return (
     <>
-      <AppBar sx={{ position: 'fixed', opacity: 0.2, backgroundColor: '#000'  }}>
+      <AppBar sx={{ position: 'fixed', opacity: 0.8, backgroundColor: 'rgba(0, 0, 0, 0.7)'  }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -179,10 +179,10 @@ const Header = () => {
                   <Link key={item.route} href={item.pathName}>
                     <Button
                       sx={{
-                        color: "#fff",
+                        color: "red",
                         marginLeft: "20px",
                         backgroundColor:
-                          activeButton === index ? "#00a1a1" : "",
+                          activeButton === index ? "yellow" : "",
                         "&:hover": {
                           color: "#fff",
                         },

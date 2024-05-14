@@ -4,12 +4,13 @@
     0,
     0,
     0,
-    0.5
-  ); /* Adjust the last value (alpha) for opacity */
-  background-blend-mode: overlay; /* Apply the overlay blending mode */
-  padding-top: 100px;
-  height: 600px;
+    0.7
+  ); 
+  background-blend-mode: overlay; 
+  padding-top: 70px;
+  padding-bottom: 50px;
+  height: auto;
   width: 100%;
-  background-position: center; /* Center the background image */
+  background-position: center;
   background-size: cover; 
 }
