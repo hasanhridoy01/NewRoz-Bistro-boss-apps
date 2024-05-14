@@ -87,7 +87,12 @@ const Testimonials = () => {
               />
               <Typography
                 variant="body2"
-                sx={{ width: "700px", textAlign: "center", color: "#000" }}
+                sx={{
+                  width: { xs: "100%", md: "700px" },
+                  maxWidth: { xs: "340px", md: "700px" },
+                  textAlign: "center",
+                  color: "#000",
+                }}
               >
                 Various version have evolved over the years, sometimes by
                 accident, sometimes on purpose (injected humour and the like).
@@ -115,7 +120,12 @@ const Testimonials = () => {
               />
               <Typography
                 variant="body2"
-                sx={{ width: "700px", textAlign: "center", color: "#000" }}
+                sx={{
+                  width: { xs: "100%", md: "700px" },
+                  maxWidth: { xs: "340px", md: "700px" },
+                  textAlign: "center",
+                  color: "#000",
+                }}
               >
                 Various version have evolved over the years, sometimes by
                 accident, sometimes on purpose (injected humour and the like).
@@ -143,7 +153,12 @@ const Testimonials = () => {
               />
               <Typography
                 variant="body2"
-                sx={{ width: "700px", textAlign: "center", color: "#000" }}
+                sx={{
+                  width: { xs: "100%", md: "700px" },
+                  maxWidth: { xs: "340px", md: "700px" },
+                  textAlign: "center",
+                  color: "#000",
+                }}
               >
                 Various version have evolved over the years, sometimes by
                 accident, sometimes on purpose (injected humour and the like).
@@ -171,7 +186,12 @@ const Testimonials = () => {
               />
               <Typography
                 variant="body2"
-                sx={{ width: "700px", textAlign: "center", color: "#000" }}
+                sx={{
+                  width: { xs: "100%", md: "700px" },
+                  maxWidth: { xs: "340px", md: "700px" },
+                  textAlign: "center",
+                  color: "#000",
+                }}
               >
                 Various version have evolved over the years, sometimes by
                 accident, sometimes on purpose (injected humour and the like).
@@ -199,7 +219,12 @@ const Testimonials = () => {
               />
               <Typography
                 variant="body2"
-                sx={{ width: "700px", textAlign: "center", color: "#000" }}
+                sx={{
+                  width: { xs: "100%", md: "700px" },
+                  maxWidth: { xs: "340px", md: "700px" },
+                  textAlign: "center",
+                  color: "#000",
+                }}
               >
                 Various version have evolved over the years, sometimes by
                 accident, sometimes on purpose (injected humour and the like).
@@ -227,7 +252,12 @@ const Testimonials = () => {
               />
               <Typography
                 variant="body2"
-                sx={{ width: "700px", textAlign: "center", color: "#000" }}
+                sx={{
+                  width: { xs: "100%", md: "700px" },
+                  maxWidth: { xs: "340px", md: "700px" },
+                  textAlign: "center",
+                  color: "#000",
+                }}
               >
                 Various version have evolved over the years, sometimes by
                 accident, sometimes on purpose (injected humour and the like).

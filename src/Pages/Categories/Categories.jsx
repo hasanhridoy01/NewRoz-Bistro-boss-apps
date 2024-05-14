@@ -65,10 +65,7 @@ const Categories = () => {
             slidesPerView={isSmallScreen ? 1 : 3}
             spaceBetween={20}
             freeMode={true}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[FreeMode, Pagination]}
+            modules={[FreeMode]}
             className="mySwiper"
           >
             <SwiperSlide>

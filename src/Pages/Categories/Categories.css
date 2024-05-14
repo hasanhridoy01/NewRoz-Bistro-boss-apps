@@ -20,3 +20,6 @@
   height: 100%;
   object-fit: cover;
 }
+.swiper-pagination-bottom {
+  margin-top: 200px;
+}

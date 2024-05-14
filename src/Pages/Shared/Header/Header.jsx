@@ -179,10 +179,10 @@ const Header = () => {
                   <Link key={item.route} href={item.pathName}>
                     <Button
                       sx={{
-                        color: "red",
+                        color: "gold",
                         marginLeft: "20px",
                         backgroundColor:
-                          activeButton === index ? "yellow" : "",
+                          activeButton === index ? "red" : "",
                         "&:hover": {
                           color: "#fff",
                         },
