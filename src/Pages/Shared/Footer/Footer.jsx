@@ -65,7 +65,7 @@ const Footer = () => {
             >
               Join us on social media
             </Typography>
-            <Stack spacing={2} direction={'row'} style={{ marginTop: '18px' }}>
+            <Stack spacing={2} direction={'row'} style={{ marginTop: '14px' }}>
               <FacebookIcon style={{ color: '#fff' }} />
               <InstagramIcon style={{ color: '#fff' }} />
               <TwitterIcon style={{ color: '#fff' }} />

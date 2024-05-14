@@ -16,41 +16,30 @@ import { Link } from "react-router-dom";
 
 //Drawer Import...................!
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { Stack } from "@mui/material";
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 const navItems = [
   {
     route: "Home",
-    pathName: "/",
+    pathName: '/',
   },
   {
-    route: "Pages",
-    pathName: "/pages",
+    route: "Contact Us",
+    pathName: '/contact',
   },
   {
-    route: "Category",
-    pathName: "/categories/news?category=all-news",
+    route: "Dashboard",
+    pathName: '/dashboard'
   },
   {
-    route: "News",
-    pathName: "/news",
+    route: "Our Menu",
+    pathName: '/menu'
   },
   {
-    route: "Contact",
-    pathName: "/contact",
-  },
-  {
-    route: "About",
-    pathName: "/about",
-  },
+    route: "Our Shop",
+    pathName: '/shop'
+  }
 ];
 
 const Header = () => {
@@ -194,6 +183,13 @@ const Header = () => {
                   </Link>
                 ))}
               </Box>
+            </Box>
+
+            <Box sx={{ marginRight: '13px' }}>
+                <Button sx={{ background: 'yellow', color: 'red' }}>
+                  <ShoppingCartCheckoutIcon />
+                  100
+                </Button>
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
