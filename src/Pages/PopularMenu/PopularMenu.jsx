@@ -43,7 +43,7 @@ const PopularMenu = () => {
             </div>
           </Stack>
         </div>
-        <div className="">
+        <div className="" style={{ marginTop: '15px' }}>
           <Grid spacing={5} container alignItems={"center"} justifyContent={"center"}>
             {menus.map((menu) => (
               <Menu key={menu._id} menu={menu}></Menu>

@@ -19,7 +19,7 @@ const ChefRecommend = () => {
       <Container style={{ marginBottom: "100px" }}>
         <div
           className=""
-          style={{ margin: "auto", marginTop: "40px", marginBottom: "0px" }}
+          style={{ margin: "auto", marginTop: "40px", marginBottom: "15px" }}
         >
           <Stack rowGap={2}>
             <Typography sx={{ textAlign: "center", color: "gold" }}>

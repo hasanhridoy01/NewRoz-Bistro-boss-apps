@@ -1,0 +1,15 @@
+.backGround-image {
+  background-image: url(../../assets/home/featured.jpg);
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adjust the last value (alpha) for opacity */
+  background-blend-mode: overlay; /* Apply the overlay blending mode */
+  padding-top: 100px;
+  height: 600px;
+  width: 100%;
+  background-position: center; /* Center the background image */
+  background-size: cover; 
+}
