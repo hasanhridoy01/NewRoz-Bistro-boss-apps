@@ -56,13 +56,21 @@ const Featured = () => {
                   />
                 </Grid>
                 <Grid item lg={6} md={6} xs={12}>
-                  <Stack spacing={2} sx={{ marginTop: '30px' }}>
-                    <Typography variant="h6" sx={{ color: '#fff' }}>March 20, 2023</Typography>
+                  <Stack spacing={2} sx={{ marginTop: "30px" }}>
+                    <Typography variant="h6" sx={{ color: "#fff" }}>
+                      March 20, 2023
+                    </Typography>
                     <div className="">
-                      <Typography variant="h5" sx={{ marginBottom: '10px', color: '#fff' }}>
+                      <Typography
+                        variant="h5"
+                        sx={{ marginBottom: "10px", color: "#fff" }}
+                      >
                         WHERE CAN I GET SOME?
                       </Typography>
-                      <Typography variant="body2" sx={{ color: '#fff', lineHeight: '23px' }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "#fff", lineHeight: "23px" }}
+                      >
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Error voluptate facere, deserunt dolores maiores quod
                         nobis quas quasi. Eaque repellat recusandae ad
@@ -70,7 +78,16 @@ const Featured = () => {
                         maxime tenetur.
                       </Typography>
                     </div>
-                    <Button sx={{ marginRight: "auto", width: '30%', backgroundColor: '#fff', color: '#000' }} variant="contained" size="large">
+                    <Button
+                      sx={{
+                        marginRight: "auto",
+                        width: { sm: "100%", lg: "30%" },
+                        backgroundColor: "#fff",
+                        color: "#000",
+                      }}
+                      variant="contained"
+                      size="large"
+                    >
                       Read More
                     </Button>
                   </Stack>

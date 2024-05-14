@@ -17,30 +17,7 @@ import { Link } from "react-router-dom";
 //Drawer Import...................!
 import Drawer from "@mui/material/Drawer";
 import { Stack } from "@mui/material";
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-
-const navItems = [
-  {
-    route: "Home",
-    pathName: '/',
-  },
-  {
-    route: "Contact Us",
-    pathName: '/contact',
-  },
-  {
-    route: "Dashboard",
-    pathName: '/dashboard'
-  },
-  {
-    route: "Our Menu",
-    pathName: '/menu'
-  },
-  {
-    route: "Our Shop",
-    pathName: '/shop'
-  }
-];
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 
 const Header = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -54,10 +31,51 @@ const Header = () => {
   };
 
   //style event section............................!
-  const [activeButton, setActiveButton] = React.useState(null);
+  const [activeButtonHome, setActiveButtonHome] = React.useState(false);
+  const [activeButtonContact, setActiveButtonContact] = React.useState(false);
+  const [activeButtonDashboard, setActiveButtonDashboard] =
+    React.useState(false);
+  const [activeButtonMenu, setActiveButtonMenu] = React.useState(false);
+  const [activeButtonShop, setActiveButtonShop] = React.useState(false);
 
-  const handleButtonClick = (index) => {
-    setActiveButton(index);
+  const handleButtonClickHome = () => {
+    setActiveButtonHome(true);
+    setActiveButtonContact(false);
+    setActiveButtonDashboard(false);
+    setActiveButtonMenu(false);
+    setActiveButtonShop(false);
+  };
+
+  const handleButtonClickContact = () => {
+    setActiveButtonContact(true);
+    setActiveButtonHome(false);
+    setActiveButtonDashboard(false);
+    setActiveButtonMenu(false);
+    setActiveButtonShop(false);
+  };
+
+  const handleButtonClickDashboard = () => {
+    setActiveButtonDashboard(true);
+    setActiveButtonContact(false);
+    setActiveButtonHome(false);
+    setActiveButtonMenu(false);
+    setActiveButtonShop(false);
+  };
+
+  const handleButtonClickMenu = () => {
+    setActiveButtonMenu(true);
+    setActiveButtonDashboard(false);
+    setActiveButtonContact(false);
+    setActiveButtonHome(false);
+    setActiveButtonShop(false);
+  };
+
+  const handleButtonClickShop = () => {
+    setActiveButtonShop(true);
+    setActiveButtonMenu(false);
+    setActiveButtonDashboard(false);
+    setActiveButtonContact(false);
+    setActiveButtonHome(false);
   };
 
   //Drawer Section Events.......................!
@@ -70,31 +88,101 @@ const Header = () => {
   const DrawerList = (
     <Box sx={{ width: 220 }} role="presentation" onClick={toggleDrawer(false)}>
       <Stack sx={{ marginTop: "10px", padding: "20px" }} spacing={1}>
-        {navItems.map((item, index) => (
-          <Link key={item.route} href={item.pathName}>
-            <Button
-              sx={{
-                color: "#000",
-                textAlign: "left",
-                backgroundColor: activeButton === index ? "#f5f5f5" : "",
-                "&:hover": {
-                  color: "#2CC506",
-                },
-              }}
-              fullWidth
-              onClick={() => handleButtonClick(index)}
-            >
-              {item.route}
-            </Button>
-          </Link>
-        ))}
+        <nav>
+          <Stack direction={"column"} spacing={2}>
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <Button
+                sx={{
+                  color: "yellow",
+                  textAlign: "left",
+                  backgroundColor: activeButtonHome === true ? "red" : "",
+                  "&:hover": {
+                    color: "#fff",
+                  },
+                }}
+                onClick={() => handleButtonClickHome()}
+              >
+                Home
+              </Button>
+            </Link>
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <Button
+                sx={{
+                  color: "yellow",
+                  textAlign: "left",
+                  backgroundColor: activeButtonContact === true ? "red" : "",
+                  "&:hover": {
+                    color: "#fff",
+                  },
+                }}
+                onClick={() => handleButtonClickContact()}
+              >
+                Contact Us
+              </Button>
+            </Link>
+
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <Button
+                sx={{
+                  color: "yellow",
+                  textAlign: "left",
+                  backgroundColor: activeButtonDashboard === true ? "red" : "",
+                  "&:hover": {
+                    color: "#fff",
+                  },
+                }}
+                onClick={() => handleButtonClickDashboard()}
+              >
+                Dashboard
+              </Button>
+            </Link>
+
+            <Link to={"/menuPage"} style={{ textDecoration: "none" }}>
+              <Button
+                sx={{
+                  color: "yellow",
+                  textAlign: "left",
+                  backgroundColor: activeButtonMenu === true ? "red" : "",
+                  "&:hover": {
+                    color: "#fff",
+                  },
+                }}
+                onClick={() => handleButtonClickMenu()}
+              >
+                Our Menu
+              </Button>
+            </Link>
+
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <Button
+                sx={{
+                  color: "yellow",
+                  textAlign: "left",
+                  backgroundColor: activeButtonShop === true ? "red" : "",
+                  "&:hover": {
+                    color: "#fff",
+                  },
+                }}
+                onClick={() => handleButtonClickShop()}
+              >
+                Our Shop
+              </Button>
+            </Link>
+          </Stack>
+        </nav>
       </Stack>
     </Box>
   );
 
   return (
     <>
-      <AppBar sx={{ position: 'fixed', opacity: 0.8, backgroundColor: 'rgba(0, 0, 0, 0.7)'  }}>
+      <AppBar
+        sx={{
+          position: "fixed",
+          opacity: 0.8,
+          backgroundColor: "rgba(0, 0, 0, 0.7)",
+        }}
+      >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -164,32 +252,101 @@ const Header = () => {
               }}
             >
               <Box className="w-full text-center">
-                {navItems.map((item, index) => (
-                  <Link key={item.route} href={item.pathName}>
-                    <Button
-                      sx={{
-                        color: "gold",
-                        marginLeft: "20px",
-                        backgroundColor:
-                          activeButton === index ? "red" : "",
-                        "&:hover": {
-                          color: "#fff",
-                        },
-                      }}
-                      onClick={() => handleButtonClick(index)}
-                    >
-                      {item.route}
-                    </Button>
-                  </Link>
-                ))}
+                <nav>
+                  <Stack direction={"row"} spacing={2}>
+                    <Link to={"/"} style={{ textDecoration: "none" }}>
+                      <Button
+                        sx={{
+                          color: "yellow",
+                          textAlign: "left",
+                          backgroundColor:
+                            activeButtonHome === true ? "red" : "",
+                          "&:hover": {
+                            color: "#fff",
+                          },
+                        }}
+                        onClick={() => handleButtonClickHome()}
+                      >
+                        Home
+                      </Button>
+                    </Link>
+                    <Link to={"/"} style={{ textDecoration: "none" }}>
+                      <Button
+                        sx={{
+                          color: "yellow",
+                          textAlign: "left",
+                          backgroundColor:
+                            activeButtonContact === true ? "red" : "",
+                          "&:hover": {
+                            color: "#fff",
+                          },
+                        }}
+                        onClick={() => handleButtonClickContact()}
+                      >
+                        Contact Us
+                      </Button>
+                    </Link>
+
+                    <Link to={"/"} style={{ textDecoration: "none" }}>
+                      <Button
+                        sx={{
+                          color: "yellow",
+                          textAlign: "left",
+                          backgroundColor:
+                            activeButtonDashboard === true ? "red" : "",
+                          "&:hover": {
+                            color: "#fff",
+                          },
+                        }}
+                        onClick={() => handleButtonClickDashboard()}
+                      >
+                        Dashboard
+                      </Button>
+                    </Link>
+
+                    <Link to={"/menuPage"} style={{ textDecoration: "none" }}>
+                      <Button
+                        sx={{
+                          color: "yellow",
+                          textAlign: "left",
+                          backgroundColor:
+                            activeButtonMenu === true ? "red" : "",
+                          "&:hover": {
+                            color: "#fff",
+                          },
+                        }}
+                        onClick={() => handleButtonClickMenu()}
+                      >
+                        Our Menu
+                      </Button>
+                    </Link>
+
+                    <Link to={"/"} style={{ textDecoration: "none" }}>
+                      <Button
+                        sx={{
+                          color: "yellow",
+                          textAlign: "left",
+                          backgroundColor:
+                            activeButtonShop === true ? "red" : "",
+                          "&:hover": {
+                            color: "#fff",
+                          },
+                        }}
+                        onClick={() => handleButtonClickShop()}
+                      >
+                        Our Shop
+                      </Button>
+                    </Link>
+                  </Stack>
+                </nav>
               </Box>
             </Box>
 
-            <Box sx={{ marginRight: '13px' }}>
-                <Button sx={{ background: 'yellow', color: 'red' }}>
-                  <ShoppingCartCheckoutIcon />
-                  100
-                </Button>
+            <Box sx={{ marginRight: "13px" }}>
+              <Button sx={{ background: "yellow", color: "red" }}>
+                <ShoppingCartCheckoutIcon />
+                100
+              </Button>
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
@@ -214,7 +371,7 @@ const Header = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <MenuItem sx={{ padding: '20px' }}>
+                <MenuItem sx={{ padding: "20px" }}>
                   <Stack spacing={2}>
                     <Typography textAlign="left">Profile</Typography>
                     <Typography textAlign="left">Account</Typography>
