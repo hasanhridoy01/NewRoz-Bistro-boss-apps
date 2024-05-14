@@ -2,9 +2,17 @@ import { Helmet } from "react-helmet-async";
 import Cover from "../../Shared/Cover/Cover";
 import banner from "../../../assets/menu/banner3.jpg";
 import banner1 from "../../../assets/home/chef-service.jpg";
-import { Container, Divider, Grid, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
+import MenuData from "../MenuData/MenuData";
 
 const Menu = () => {
   const [menus, setMenus] = useState([]);
@@ -23,6 +31,7 @@ const Menu = () => {
       <Helmet>
         <title>Bistro Boss | Menu Page</title>
       </Helmet>
+
       <Cover image={banner} title="Our Menu" body="Would You To A Try Dish?" />
       <Container sx={{ marginTop: "150px", marginBottom: "150px" }}>
         <div
@@ -60,19 +69,146 @@ const Menu = () => {
             alignItems={"center"}
             justifyContent={"center"}
           >
-            {menus.map((menu) => (
-              <MenuItem key={menu._id} menu={menu}></MenuItem>
-            ))}
+            <MenuData></MenuData>
           </Grid>
         </div>
       </Container>
-      <div className="" style={{ marginBottom: '150px', marginTop: '50px' }}>
+
+      {/* dessert */}
+      <div className="" style={{ marginBottom: "150px", marginTop: "50px" }}>
         <Cover
           image={banner1}
           title="Dessert"
           body="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         />
       </div>
+      <Container sx={{ marginTop: "150px", marginBottom: "150px" }}>
+        <div className="" style={{ marginTop: "50px", marginBottom: "100px" }}>
+          <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            {menus.map((menu) => (
+              <MenuItem key={menu._id} menu={menu}></MenuItem>
+            ))}
+          </Grid>
+          <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+            sx={{ marginTop: "8px" }}
+          >
+            {menus.map((menu) => (
+              <MenuItem key={menu._id} menu={menu}></MenuItem>
+            ))}
+          </Grid>
+        </div>
+      </Container>
+
+      {/* Pizza */}
+      <div className="" style={{ marginBottom: "150px", marginTop: "50px" }}>
+        <Cover
+          image={banner1}
+          title="Pizza"
+          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        />
+      </div>
+      <Container sx={{ marginTop: "150px", marginBottom: "150px" }}>
+        <div className="" style={{ marginTop: "50px", marginBottom: "100px" }}>
+          <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            {menus.map((menu) => (
+              <MenuItem key={menu._id} menu={menu}></MenuItem>
+            ))}
+          </Grid>
+          <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+            sx={{ marginTop: "8px" }}
+          >
+            {menus.map((menu) => (
+              <MenuItem key={menu._id} menu={menu}></MenuItem>
+            ))}
+          </Grid>
+        </div>
+      </Container>
+
+      {/* salad */}
+      <div className="" style={{ marginBottom: "150px", marginTop: "50px" }}>
+        <Cover
+          image={banner1}
+          title="Salad"
+          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        />
+      </div>
+      <Container sx={{ marginTop: "150px", marginBottom: "150px" }}>
+        <div className="" style={{ marginTop: "50px", marginBottom: "100px" }}>
+          <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            {menus.map((menu) => (
+              <MenuItem key={menu._id} menu={menu}></MenuItem>
+            ))}
+          </Grid>
+          <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+            sx={{ marginTop: "8px" }}
+          >
+            {menus.map((menu) => (
+              <MenuItem key={menu._id} menu={menu}></MenuItem>
+            ))}
+          </Grid>
+        </div>
+      </Container>
+
+      {/* Soups */}
+      <div className="" style={{ marginBottom: "150px", marginTop: "50px" }}>
+        <Cover
+          image={banner1}
+          title="Soups"
+          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        />
+      </div>
+      <Container sx={{ marginTop: "150px", marginBottom: "150px" }}>
+        <div className="" style={{ marginTop: "50px", marginBottom: "100px" }}>
+          <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            {menus.map((menu) => (
+              <MenuItem key={menu._id} menu={menu}></MenuItem>
+            ))}
+          </Grid>
+          <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+            sx={{ marginTop: "8px" }}
+          >
+            {menus.map((menu) => (
+              <MenuItem key={menu._id} menu={menu}></MenuItem>
+            ))}
+          </Grid>
+        </div>
+      </Container>
     </div>
   );
 };
