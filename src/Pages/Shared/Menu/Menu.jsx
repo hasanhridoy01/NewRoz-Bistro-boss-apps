@@ -1,4 +1,5 @@
-import { Grid, Stack } from "@mui/material";
+import { Grid } from "@mui/material";
+import PropTypes from "prop-types";
 
 const Menu = ({ menu }) => {
   const { image, name, price, recipe } = menu;
@@ -22,9 +23,18 @@ const Menu = ({ menu }) => {
           }}
         />
         <div style={{ marginLeft: "15px" }}>
-          <div className="" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div
+            className=""
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <h3 style={{ marginBottom: "0px", marginTop: "7px" }}>{name}</h3>
-            <p style={{ marginBottom: "0px", marginTop: "9px", color: 'gold' }}>${price}</p>
+            <p style={{ marginBottom: "0px", marginTop: "9px", color: "gold" }}>
+              ${price}
+            </p>
           </div>
           <p style={{ marginBottom: "0px", marginTop: "7px" }}>{recipe}</p>
         </div>
@@ -34,5 +44,13 @@ const Menu = ({ menu }) => {
 };
 
 //Assign Props Type on this Components..................!
+Menu.propTypes = {
+  menu: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    recipe: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Menu;

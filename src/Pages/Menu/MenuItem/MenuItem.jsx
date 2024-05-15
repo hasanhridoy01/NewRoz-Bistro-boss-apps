@@ -1,4 +1,5 @@
 import { Grid } from "@mui/material";
+import PropTypes from "prop-types";
 
 const MenuItem = ({ menu }) => {
   const { image, name, price, recipe } = menu;
@@ -39,6 +40,16 @@ const MenuItem = ({ menu }) => {
       </div>
     </Grid>
   );
+};
+
+//Assign Props Type on this Components..................!
+MenuItem.propTypes = {
+  menu: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    recipe: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default MenuItem;

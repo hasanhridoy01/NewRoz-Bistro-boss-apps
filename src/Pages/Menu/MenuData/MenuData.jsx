@@ -1,11 +1,21 @@
-import { MenuItem } from "@mui/material";
+import { Grid } from "@mui/material";
 import useMenu from "../../../hooks/useMenu";
+import MenuItem from "../MenuItem/MenuItem";
 
 const MenuData = () => {
+    const [menus] = useMenu();
+    const popularItems = menus.filter((item) => item.category === "popular");
     return (
-        <div>
-            
-        </div>
+        <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            {popularItems.map((menu) => (
+              <MenuItem key={menu._id} menu={menu}></MenuItem>
+            ))}
+        </Grid>
     );
 };
 

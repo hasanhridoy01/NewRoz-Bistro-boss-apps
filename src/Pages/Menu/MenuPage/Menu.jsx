@@ -2,30 +2,10 @@ import { Helmet } from "react-helmet-async";
 import Cover from "../../Shared/Cover/Cover";
 import banner from "../../../assets/menu/banner3.jpg";
 import banner1 from "../../../assets/home/chef-service.jpg";
-import {
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { useEffect, useState } from "react";
-import MenuItem from "../../Menu/MenuItem/MenuItem";
+import { Container, Divider, Stack, Typography } from "@mui/material";
 import MenuData from "../MenuData/MenuData";
 
 const Menu = () => {
-  const [menus, setMenus] = useState([]);
-
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const popularItems = data.filter((item) => item.category === "popular");
-        setMenus(popularItems);
-      });
-  }, []);
-
   return (
     <div>
       <Helmet>
@@ -63,14 +43,7 @@ const Menu = () => {
         </div>
 
         <div className="" style={{ marginTop: "50px", marginBottom: "100px" }}>
-          <Grid
-            spacing={5}
-            container
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            <MenuData></MenuData>
-          </Grid>
+          <MenuData></MenuData>
         </div>
       </Container>
 
@@ -84,27 +57,10 @@ const Menu = () => {
       </div>
       <Container sx={{ marginTop: "150px", marginBottom: "150px" }}>
         <div className="" style={{ marginTop: "50px", marginBottom: "100px" }}>
-          <Grid
-            spacing={5}
-            container
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            {menus.map((menu) => (
-              <MenuItem key={menu._id} menu={menu}></MenuItem>
-            ))}
-          </Grid>
-          <Grid
-            spacing={5}
-            container
-            alignItems={"center"}
-            justifyContent={"center"}
-            sx={{ marginTop: "8px" }}
-          >
-            {menus.map((menu) => (
-              <MenuItem key={menu._id} menu={menu}></MenuItem>
-            ))}
-          </Grid>
+          <MenuData></MenuData>
+          <div className="" style={{ marginTop: "45px" }}>
+            <MenuData></MenuData>
+          </div>
         </div>
       </Container>
 
@@ -118,27 +74,10 @@ const Menu = () => {
       </div>
       <Container sx={{ marginTop: "150px", marginBottom: "150px" }}>
         <div className="" style={{ marginTop: "50px", marginBottom: "100px" }}>
-          <Grid
-            spacing={5}
-            container
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            {menus.map((menu) => (
-              <MenuItem key={menu._id} menu={menu}></MenuItem>
-            ))}
-          </Grid>
-          <Grid
-            spacing={5}
-            container
-            alignItems={"center"}
-            justifyContent={"center"}
-            sx={{ marginTop: "8px" }}
-          >
-            {menus.map((menu) => (
-              <MenuItem key={menu._id} menu={menu}></MenuItem>
-            ))}
-          </Grid>
+          <MenuData></MenuData>
+          <div className="" style={{ marginTop: "45px" }}>
+            <MenuData></MenuData>
+          </div>
         </div>
       </Container>
 
@@ -152,27 +91,10 @@ const Menu = () => {
       </div>
       <Container sx={{ marginTop: "150px", marginBottom: "150px" }}>
         <div className="" style={{ marginTop: "50px", marginBottom: "100px" }}>
-          <Grid
-            spacing={5}
-            container
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            {menus.map((menu) => (
-              <MenuItem key={menu._id} menu={menu}></MenuItem>
-            ))}
-          </Grid>
-          <Grid
-            spacing={5}
-            container
-            alignItems={"center"}
-            justifyContent={"center"}
-            sx={{ marginTop: "8px" }}
-          >
-            {menus.map((menu) => (
-              <MenuItem key={menu._id} menu={menu}></MenuItem>
-            ))}
-          </Grid>
+          <MenuData></MenuData>
+          <div className="" style={{ marginTop: "45px" }}>
+            <MenuData></MenuData>
+          </div>
         </div>
       </Container>
 
@@ -186,27 +108,10 @@ const Menu = () => {
       </div>
       <Container sx={{ marginTop: "150px", marginBottom: "150px" }}>
         <div className="" style={{ marginTop: "50px", marginBottom: "100px" }}>
-          <Grid
-            spacing={5}
-            container
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            {menus.map((menu) => (
-              <MenuItem key={menu._id} menu={menu}></MenuItem>
-            ))}
-          </Grid>
-          <Grid
-            spacing={5}
-            container
-            alignItems={"center"}
-            justifyContent={"center"}
-            sx={{ marginTop: "8px" }}
-          >
-            {menus.map((menu) => (
-              <MenuItem key={menu._id} menu={menu}></MenuItem>
-            ))}
-          </Grid>
+          <MenuData></MenuData>
+          <div className="" style={{ marginTop: "45px" }}>
+            <MenuData></MenuData>
+          </div>
         </div>
       </Container>
     </div>
