@@ -9,9 +9,10 @@ import { Grid } from "@mui/material";
 
 const FoodCard = ({ item }) => {
   const { name, image, price, recipe } = item;
+  
   return (
     <Grid item lg={4} sm={6} xs={12}>
-      <Card sx={{ backgroundColor: '#f5f5f5' }}>
+      <Card sx={{ backgroundColor: '#f5f5f5', cursor: 'pointer' }}>
         <CardMedia sx={{ height: 240 }} image={image} title="green iguana" />
         <CardContent sx={{ marginBottom: '0px' }}>
           <Typography gutterBottom variant="h5" component="div">

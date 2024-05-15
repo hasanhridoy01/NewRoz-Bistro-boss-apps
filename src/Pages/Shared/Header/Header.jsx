@@ -105,7 +105,7 @@ const Header = () => {
                 Home
               </Button>
             </Link>
-            <Link to={"/"} style={{ textDecoration: "none" }}>
+            <Link to={"/contactPage"} style={{ textDecoration: "none" }}>
               <Button
                 sx={{
                   color: "yellow",
@@ -270,7 +270,7 @@ const Header = () => {
                         Home
                       </Button>
                     </Link>
-                    <Link to={"/"} style={{ textDecoration: "none" }}>
+                    <Link to={"/contactPage"} style={{ textDecoration: "none" }}>
                       <Button
                         sx={{
                           color: "yellow",
