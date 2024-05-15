@@ -5,8 +5,14 @@ import Featured from "../Featured/Featured";
 import PopularMenu from "../PopularMenu/PopularMenu";
 import Banner from "../Shared/Banner/Banner";
 import Testimonials from "../Testimonials/Testimonials";
+import React from "react";
 
 const Home = () => {
+  //page top on position...............!
+  React.useEffect(() => {
+    window.scrollTo(100, 100);
+  }, []);
+  
   return (
     <div>
       <Helmet>

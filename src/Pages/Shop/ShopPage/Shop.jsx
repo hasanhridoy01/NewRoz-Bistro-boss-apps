@@ -5,6 +5,7 @@ import Cover from "../../Shared/Cover/Cover";
 import banner from "../../../assets/shop/banner2.jpg";
 import useMenu from "../../../hooks/useMenu";
 import FoodCard from "../../components/FoodCard/FoodCard";
+import { Helmet } from "react-helmet-async";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -53,8 +54,16 @@ const Shop = () => {
     setValue(newValue);
   };
 
+  //page top on position...............!
+  React.useEffect(() => {
+    window.scrollTo(100, 100);
+  }, []);
+
   return (
     <div>
+      <Helmet>
+        <title>Bistro Boss | Shop Page</title>
+      </Helmet>
       <Cover
         image={banner}
         title="Our Shop"
@@ -80,7 +89,7 @@ const Shop = () => {
                     borderRadius: "2px", // Optional: make the edges rounded
                   },
                 },
-                marginBottom: '20px'
+                marginBottom: "20px",
               }}
             >
               <Tab

@@ -4,8 +4,13 @@ import banner from "../../../assets/menu/banner3.jpg";
 import banner1 from "../../../assets/home/chef-service.jpg";
 import { Container, Divider, Stack, Typography } from "@mui/material";
 import MenuData from "../MenuData/MenuData";
+import React from "react";
 
 const Menu = () => {
+  //page top on position...............!
+  React.useEffect(() => {
+    window.scrollTo(100, 100);
+  }, []);
   return (
     <div>
       <Helmet>
