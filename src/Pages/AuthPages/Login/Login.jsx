@@ -136,9 +136,13 @@ const Login = () => {
                         fullWidth
                         sx={{
                           backgroundColor: "#fff",
-                          border: "none",
                           marginTop: "7px",
-                          borderRadius: "10px",
+                          borderRadius: "3px",
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": {
+                              border: "none",
+                            },
+                          },
                         }}
                       />
                     </div>
@@ -169,9 +173,13 @@ const Login = () => {
                         fullWidth
                         sx={{
                           backgroundColor: "#fff",
-                          border: "none",
                           marginTop: "7px",
-                          borderRadius: "10px",
+                          borderRadius: "3px",
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": {
+                              border: "none",
+                            },
+                          },
                         }}
                         InputProps={{
                           endAdornment: (
@@ -192,7 +200,13 @@ const Login = () => {
                       />
                     </div>
 
-                    <p style={{ fontSize: "13px", marginLeft: "2px" }}>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        marginLeft: "2px",
+                        fontWeight: 500,
+                      }}
+                    >
                       Are You New? Please{" "}
                       <Link
                         to={"/registration"}

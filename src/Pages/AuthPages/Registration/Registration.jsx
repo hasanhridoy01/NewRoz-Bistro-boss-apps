@@ -135,9 +135,13 @@ const Registration = () => {
                         fullWidth
                         sx={{
                           backgroundColor: "#fff",
-                          border: "none",
                           marginTop: "7px",
-                          borderRadius: "10px",
+                          borderRadius: "3px",
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": {
+                              border: "none",
+                            },
+                          },
                         }}
                       />
                     </div>
@@ -168,9 +172,13 @@ const Registration = () => {
                         fullWidth
                         sx={{
                           backgroundColor: "#fff",
-                          border: "none",
                           marginTop: "7px",
-                          borderRadius: "10px",
+                          borderRadius: "3px",
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": {
+                              border: "none",
+                            },
+                          },
                         }}
                       />
                     </div>
@@ -202,8 +210,13 @@ const Registration = () => {
                         fullWidth
                         sx={{
                           backgroundColor: "#fff",
-                          border: "none",
                           marginTop: "7px",
+                          borderRadius: "3px",
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": {
+                              border: "none",
+                            },
+                          },
                         }}
                         InputProps={{
                           endAdornment: (
@@ -224,7 +237,13 @@ const Registration = () => {
                       />
                     </div>
 
-                    <p style={{ fontSize: "13px", marginLeft: "2px" }}>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        marginLeft: "2px",
+                        fontWeight: 500,
+                      }}
+                    >
                       Do You Have an Account?{" "}
                       <Link
                         to={"/login"}
