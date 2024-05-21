@@ -6,6 +6,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
+import { Form, Link } from "react-router-dom";
 
 const Registration = () => {
   //Show password section...................................!
@@ -13,6 +14,45 @@ const Registration = () => {
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  //handleSubmit....................!
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Get user data
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    // Email validation regex
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Password validation regex (at least 8 characters)
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
+    // User field validation
+    if (!name) {
+      alert("Please fill the name field");
+    } else if (!email) {
+      alert("Please fill the email field");
+    } else if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address");
+    } else if (!password) {
+      alert("Please fill the password field");
+    } else if (!passwordPattern.test(password)) {
+      alert(
+        "Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, and one number"
+      );
+    } else {
+      // Reset the fields
+      e.target.name.value = "";
+      e.target.email.value = "";
+      e.target.password.value = "";
+
+      // Now send the data to Firebase Auth
+      alert("Success!");
+    }
   };
   return (
     <div>
@@ -30,7 +70,7 @@ const Registration = () => {
         <div
           className=""
           style={{
-            height: "400px",
+            height: "505px",
             width: "800px",
             backgroundImage: `url(${img})`,
             display: "flex",
@@ -62,107 +102,168 @@ const Registration = () => {
                       textAlign: "center",
                       fontSize: "20px",
                       fontFamily: "monospace",
+                      marginTop: "10px",
                     }}
                   >
-                    Login
+                    Registration
                   </h4>
 
-                  <div
-                    className=""
-                    style={{
-                      marginTop: "20px",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <label
-                      htmlFor=""
+                  <Form onSubmit={handleSubmit}>
+                    <div
+                      className=""
                       style={{
-                        fontSize: "17px",
-                        fontFamily: "sans-serif",
-                        marginBottom: "0px",
+                        marginTop: "20px",
+                        display: "flex",
+                        flexDirection: "column",
                       }}
                     >
-                      Email
-                    </label>
-                    <TextField
-                      placeholder="Enter Your Email"
-                      type="email"
-                      fullWidth
-                      sx={{
-                        backgroundColor: "#fff",
-                        border: "none",
-                        marginTop: "7px",
-                      }}
-                    />
-                  </div>
+                      <label
+                        htmlFor=""
+                        style={{
+                          fontSize: "17px",
+                          fontFamily: "sans-serif",
+                          marginBottom: "0px",
+                        }}
+                      >
+                        Name
+                      </label>
+                      <TextField
+                        placeholder="Enter Your Name"
+                        type="text"
+                        name="name"
+                        required
+                        fullWidth
+                        sx={{
+                          backgroundColor: "#fff",
+                          border: "none",
+                          marginTop: "7px",
+                          borderRadius: "10px",
+                        }}
+                      />
+                    </div>
 
-                  <div
-                    className=""
-                    style={{
-                      marginTop: "20px",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <label
-                      htmlFor="password"
+                    <div
+                      className=""
                       style={{
-                        fontSize: "17px",
-                        fontFamily: "sans-serif",
-                        marginBottom: "0px",
+                        marginTop: "20px",
+                        display: "flex",
+                        flexDirection: "column",
                       }}
                     >
-                      Password
-                    </label>
-                    <TextField
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Enter Your Password"
-                      fullWidth
-                      sx={{
-                        backgroundColor: "#fff",
-                        border: "none",
-                        marginTop: "7px",
-                      }}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton
-                              onClick={handleClickShowPassword}
-                              edge="end"
-                            >
-                              {showPassword ? (
-                                <VisibilityOff />
-                              ) : (
-                                <Visibility />
-                              )}
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
-                  </div>
+                      <label
+                        htmlFor=""
+                        style={{
+                          fontSize: "17px",
+                          fontFamily: "sans-serif",
+                          marginBottom: "0px",
+                        }}
+                      >
+                        Email
+                      </label>
+                      <TextField
+                        placeholder="Enter Your Email"
+                        type="email"
+                        name="email"
+                        required
+                        fullWidth
+                        sx={{
+                          backgroundColor: "#fff",
+                          border: "none",
+                          marginTop: "7px",
+                          borderRadius: "10px",
+                        }}
+                      />
+                    </div>
 
-                  <div
-                    className=""
-                    style={{
-                      marginTop: "24px",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Button
-                      variant="contained"
-                      size="large"
-                      sx={{ backgroundColor: "#00a1a1", boxShadow: "none" }}
+                    <div
+                      className=""
+                      style={{
+                        marginTop: "20px",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
                     >
-                      Login
-                    </Button>
-                  </div>
+                      <label
+                        htmlFor="password"
+                        style={{
+                          fontSize: "17px",
+                          fontFamily: "sans-serif",
+                          marginBottom: "0px",
+                          borderRadius: "10px",
+                        }}
+                      >
+                        Password
+                      </label>
+                      <TextField
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter Your Password"
+                        name="password"
+                        required
+                        fullWidth
+                        sx={{
+                          backgroundColor: "#fff",
+                          border: "none",
+                          marginTop: "7px",
+                        }}
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <IconButton
+                                onClick={handleClickShowPassword}
+                                edge="end"
+                              >
+                                {showPassword ? (
+                                  <VisibilityOff />
+                                ) : (
+                                  <Visibility />
+                                )}
+                              </IconButton>
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+                    </div>
+
+                    <p style={{ fontSize: "13px", marginLeft: "2px" }}>
+                      Do You Have an Account?{" "}
+                      <Link
+                        to={"/login"}
+                        style={{ color: "#00a1a1", fontSize: "14px" }}
+                      >
+                        Login
+                      </Link>
+                    </p>
+
+                    <div
+                      className=""
+                      style={{
+                        marginTop: "24px",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <Button
+                        variant="contained"
+                        size="large"
+                        type="submit"
+                        sx={{
+                          backgroundColor: "#00a1a1",
+                          boxShadow: "none",
+                          textTransform: "none",
+                        }}
+                      >
+                        Registration
+                      </Button>
+                    </div>
+                  </Form>
                 </Stack>
               </div>
               <div className="" style={{ background: "none" }}>
-                <img className="img" src={login} alt="" />
+                <img
+                  style={{ height: "300px", width: "400px", marginTop: "90px" }}
+                  src={login}
+                  alt=""
+                />
               </div>
             </CardContent>
           </Card>
