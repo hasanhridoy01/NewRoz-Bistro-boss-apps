@@ -49,7 +49,12 @@ const ContactUs = () => {
       </div>
 
       <Container style={{ marginTop: "30px", marginBottom: "100px" }}>
-        <Grid container alignItems={"center"} justifyContent={"center"}>
+        <Grid
+          spacing={2}
+          container
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
           <Grid item lg={4} md={6} xs={12}>
             <Card>
               <CardActionArea>
@@ -65,7 +70,7 @@ const ContactUs = () => {
                 >
                   <PhoneIcon sx={{ color: "#fff", fontSize: "30px" }} />
                 </div>
-                <CardContent sx={{ padding: '0px 20px 20px 20px' }}>
+                <CardContent sx={{ padding: "0px 20px 20px 20px" }}>
                   <div
                     className=""
                     style={{
@@ -73,8 +78,8 @@ const ContactUs = () => {
                       flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "center",
-                      padding: '20px',
-                      backgroundColor: '#f5f5f5'
+                      padding: "20px",
+                      backgroundColor: "#f5f5f5",
                     }}
                   >
                     <Typography gutterBottom variant="h5" component="div">
@@ -88,8 +93,82 @@ const ContactUs = () => {
               </CardActionArea>
             </Card>
           </Grid>
-          <Grid item lg={4} md={6} xs={12}></Grid>
-          <Grid item lg={4} md={6} xs={12}></Grid>
+          <Grid item lg={4} md={6} xs={12}>
+            <Card>
+              <CardActionArea>
+                <div
+                  className=""
+                  style={{
+                    backgroundColor: "#d1a054",
+                    height: "90px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <PhoneIcon sx={{ color: "#fff", fontSize: "30px" }} />
+                </div>
+                <CardContent sx={{ padding: "0px 20px 20px 20px" }}>
+                  <div
+                    className=""
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "20px",
+                      backgroundColor: "#f5f5f5",
+                    }}
+                  >
+                    <Typography gutterBottom variant="h5" component="div">
+                      ADDRESS
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      +38 (012) 34 56 789
+                    </Typography>
+                  </div>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item lg={4} md={6} xs={12}>
+            <Card>
+              <CardActionArea>
+                <div
+                  className=""
+                  style={{
+                    backgroundColor: "#d1a054",
+                    height: "90px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <PhoneIcon sx={{ color: "#fff", fontSize: "30px" }} />
+                </div>
+                <CardContent sx={{ padding: "0px 20px 20px 20px" }}>
+                  <div
+                    className=""
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "20px",
+                      backgroundColor: "#f5f5f5",
+                    }}
+                  >
+                    <Typography gutterBottom variant="h5" component="div">
+                      WORKING HOURS
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      +38 (012) 34 56 789
+                    </Typography>
+                  </div>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
         </Grid>
       </Container>
     </div>
