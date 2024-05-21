@@ -16,11 +16,18 @@ import { CardActionArea } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EditLocationIcon from "@mui/icons-material/EditLocation";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
-import TelegramIcon from '@mui/icons-material/Telegram';
+import TelegramIcon from "@mui/icons-material/Telegram";
+import React from "react";
 
 const ContactUs = () => {
+  //page top on position...............!
+  React.useEffect(() => {
+    window.scrollTo(100, 100);
+  }, []);
+
   return (
     <div>
+      
       <Helmet>
         <title>Bistro Boss | Contact Page</title>
       </Helmet>
@@ -242,15 +249,15 @@ const ContactUs = () => {
             />
           </Grid>
           <Grid item lg={12} md={12} sm={12} xs={12} sx={{ marginTop: "5px" }}>
-          <label htmlFor="">Phone</label>
+            <label htmlFor="">Phone</label>
             <TextField
               placeholder="Enter Your Phone"
               fullWidth
-              sx={{ backgroundColor: "#fff", border: "none", marginTop: '7px' }}
+              sx={{ backgroundColor: "#fff", border: "none", marginTop: "7px" }}
             />
           </Grid>
           <Grid item lg={12} md={12} sm={12} xs={12} sx={{ marginTop: "5px" }}>
-          <label htmlFor="">Message</label>
+            <label htmlFor="">Message</label>
             <TextField
               placeholder="Enter Your Message"
               fullWidth
@@ -258,7 +265,7 @@ const ContactUs = () => {
                 backgroundColor: "#fff",
                 border: "none",
                 height: "100px",
-                marginTop: '7px',
+                marginTop: "7px",
                 "& .MuiInputBase-root": {
                   height: "100%",
                 },
@@ -270,7 +277,19 @@ const ContactUs = () => {
             />
           </Grid>
         </Grid>
-        <Button variant="contained" sx={{ marginTop: '15px', boxShadow: 'none', backgroundColor: '#a4752c', textTransform: 'none' }} size="large" endIcon={ <TelegramIcon /> }>Send Message</Button>
+        <Button
+          variant="contained"
+          sx={{
+            marginTop: "15px",
+            boxShadow: "none",
+            backgroundColor: "#a4752c",
+            textTransform: "none",
+          }}
+          size="large"
+          endIcon={<TelegramIcon />}
+        >
+          Send Message
+        </Button>
       </Container>
     </div>
   );

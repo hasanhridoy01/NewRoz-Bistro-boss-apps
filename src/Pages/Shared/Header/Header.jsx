@@ -270,7 +270,10 @@ const Header = () => {
                         Home
                       </Button>
                     </Link>
-                    <Link to={"/contactPage"} style={{ textDecoration: "none" }}>
+                    <Link
+                      to={"/contactPage"}
+                      style={{ textDecoration: "none" }}
+                    >
                       <Button
                         sx={{
                           color: "yellow",
@@ -343,7 +346,16 @@ const Header = () => {
             </Box>
 
             <Box sx={{ marginRight: "13px" }}>
-              <Button sx={{ background: "yellow", color: "red" }}>
+              <Button
+                sx={{
+                  background: "yellow",
+                  color: "red",
+                  "&:hover": {
+                    background: "red", // Change this to the desired hover background color
+                    color: "yellow", // Change this to the desired hover text color
+                  },
+                }}
+              >
                 <ShoppingCartCheckoutIcon />
                 100
               </Button>

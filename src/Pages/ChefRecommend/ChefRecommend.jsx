@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 
 import img1 from "../../assets/home/product-5-370x247.jpg";
+import { Link } from "react-router-dom";
 
 const ChefRecommend = () => {
   return (
@@ -44,7 +45,12 @@ const ChefRecommend = () => {
             </div>
           </Stack>
         </div>
-        <Grid spacing={2} container alignItems={"center"} justifyContent={"center"}>
+        <Grid
+          spacing={2}
+          container
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
           <Grid item lg={4} md={6} sm={12}>
             <Card>
               <CardMedia
@@ -155,6 +161,21 @@ const ChefRecommend = () => {
           </Grid>
         </Grid>
       </Container>
+      <div
+        className=""
+        style={{
+          width: "140px",
+          marginBottom: "0px",
+          margin: "auto",
+          marginTop: "40px",
+        }}
+      >
+        <Link to={"/shopPage"}>
+          <Button variant="outlined" size="large" sx={{ marginTop: "20px" }}>
+            View All
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };

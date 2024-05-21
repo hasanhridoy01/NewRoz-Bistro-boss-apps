@@ -1,6 +1,14 @@
-import { Button, Container, Divider, Grid, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import Menu from "../Shared/Menu/Menu";
+import { Link } from "react-router-dom";
 
 const PopularMenu = () => {
   const [menus, setMenus] = useState([]);
@@ -15,7 +23,7 @@ const PopularMenu = () => {
   }, []);
   return (
     <div>
-      <Container sx={{ marginBottom: '120px' }}>
+      <Container sx={{ marginBottom: "120px" }}>
         <div
           className=""
           style={{ margin: "auto", marginTop: "100px", marginBottom: "0px" }}
@@ -43,15 +51,32 @@ const PopularMenu = () => {
             </div>
           </Stack>
         </div>
-        <div className="" style={{ marginTop: '15px' }}>
-          <Grid spacing={5} container alignItems={"center"} justifyContent={"center"}>
+        <div className="" style={{ marginTop: "15px" }}>
+          <Grid
+            spacing={5}
+            container
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
             {menus.map((menu) => (
               <Menu key={menu._id} menu={menu}></Menu>
             ))}
           </Grid>
         </div>
-        <div className="" style={{ width: '140px', marginBottom: '0px',margin: 'auto', marginTop: '40px', }}>
-          <Button variant="outlined" size="large" sx={{ marginTop: '20px' }}>View All</Button>
+        <div
+          className=""
+          style={{
+            width: "140px",
+            marginBottom: "0px",
+            margin: "auto",
+            marginTop: "40px",
+          }}
+        >
+          <Link to={'/menuPage'}>
+            <Button variant="outlined" size="large" sx={{ marginTop: "20px" }}>
+              View All
+            </Button>
+          </Link>
         </div>
       </Container>
     </div>
