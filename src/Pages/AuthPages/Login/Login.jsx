@@ -29,7 +29,7 @@ const Login = () => {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
 
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -54,14 +54,18 @@ const Login = () => {
     //user field validation..................!
     if (!email) {
       alert("Please fill the email field");
+      setLoading(false);
     } else if (!emailPattern.test(email)) {
       alert("Please enter a valid email address");
+      setLoading(false);
     } else if (!password) {
       alert("Please fill the password field");
+      setLoading(false);
     } else if (!passwordPattern.test(password)) {
       alert(
         "Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, and one number"
       );
+      setLoading(false);
     } else {
       // Reset the fields
       e.target.email.value = "";
@@ -90,13 +94,13 @@ const Login = () => {
               `,
               },
             });
-            navigate(from, {replace: true});
+            navigate(from, { replace: true });
             setLoading(false);
           }
         })
         .catch((error) => {
           const errorMessage = error.message;
-          console.log(errorMessage);
+          setLoading(false);
           setError(errorMessage);
         });
     }

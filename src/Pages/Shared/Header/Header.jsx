@@ -305,7 +305,7 @@ const Header = () => {
                       </Button>
                     </Link>
 
-                    <Link to={"/"} style={{ textDecoration: "none" }}>
+                    <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
                       <Button
                         sx={{
                           color: "yellow",
@@ -418,6 +418,7 @@ const Header = () => {
                     variant="contained"
                     sx={{
                       backgroundColor: "yellow",
+                      textTransform: 'none',
                       color: "red",
                       "&:hover": {
                         backgroundColor: "red",

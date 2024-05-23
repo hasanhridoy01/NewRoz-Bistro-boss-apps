@@ -24,26 +24,26 @@ const ChefRecommend = () => {
 
   //Handle Add to Cart.............!
   const handleAddToCart = (id) => {
-    if(user && user.email){
+    if (user && user.email) {
       //send cart item go to the context...............!
       const cartItem = {
         menuId: id,
-        email: user.email
-      }
+        email: user.email,
+      };
       console.log(cartItem);
-    }else{
+    } else {
       Swal.fire({
         title: "You Are not Login!",
-        text: "You won't be able to revert this!",
+        text: "You won't be able order this!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#00a1a1",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, Login!"
+        confirmButtonText: "Yes, Login!",
       }).then((result) => {
         if (result.isConfirmed) {
           //Send the user to the login page........!
-          navigate('/login', { state: {from: location} });
+          navigate("/login", { state: { from: location } });
         }
       });
     }
@@ -93,7 +93,7 @@ const ChefRecommend = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
-                  Caeser Salad1
+                  Caesar salad
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
@@ -130,7 +130,7 @@ const ChefRecommend = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
-                  Caeser Salad2
+                  Caesar salad
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
@@ -167,7 +167,7 @@ const ChefRecommend = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
-                  Caeser Salad3
+                  Caesar salad
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
