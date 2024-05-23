@@ -12,16 +12,41 @@ import {
 } from "@mui/material";
 
 import img1 from "../../assets/home/product-5-370x247.jpg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const ChefRecommend = () => {
   //check user...............!
   const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   //Handle Add to Cart.............!
-  const handleAddToCart = (name) => {
-    console.log(name);
+  const handleAddToCart = (id) => {
+    if(user && user.email){
+      //send cart item go to the context...............!
+      const cartItem = {
+        menuId: id,
+        email: user.email
+      }
+      console.log(cartItem);
+    }else{
+      Swal.fire({
+        title: "You Are not Login!",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#00a1a1",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Login!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          //Send the user to the login page........!
+          navigate('/login', { state: {from: location} });
+        }
+      });
+    }
   };
   return (
     <div>
@@ -81,20 +106,18 @@ const ChefRecommend = () => {
                   marginLeft: "10px",
                 }}
               >
-                {user && (
-                  <Button
-                    size="large"
-                    variant="contained"
-                    onClick={() => handleAddToCart("Caeser Salad1")}
-                    sx={{
-                      backgroundColor: "#00a1a1",
-                      textTransform: "none",
-                      boxShadow: "none",
-                    }}
-                  >
-                    Add to Cart
-                  </Button>
-                )}
+                <Button
+                  size="large"
+                  variant="contained"
+                  onClick={() => handleAddToCart(1)}
+                  sx={{
+                    backgroundColor: "#00a1a1",
+                    textTransform: "none",
+                    boxShadow: "none",
+                  }}
+                >
+                  Add to Cart
+                </Button>
               </CardActions>
             </Card>
           </Grid>
@@ -120,20 +143,18 @@ const ChefRecommend = () => {
                   marginLeft: "10px",
                 }}
               >
-                {user && (
-                  <Button
-                    size="large"
-                    variant="contained"
-                    onClick={() => handleAddToCart("Caeser Salad2")}
-                    sx={{
-                      backgroundColor: "#00a1a1",
-                      textTransform: "none",
-                      boxShadow: "none",
-                    }}
-                  >
-                    Add to Cart
-                  </Button>
-                )}
+                <Button
+                  size="large"
+                  variant="contained"
+                  onClick={() => handleAddToCart(2)}
+                  sx={{
+                    backgroundColor: "#00a1a1",
+                    textTransform: "none",
+                    boxShadow: "none",
+                  }}
+                >
+                  Add to Cart
+                </Button>
               </CardActions>
             </Card>
           </Grid>
@@ -159,20 +180,18 @@ const ChefRecommend = () => {
                   marginLeft: "10px",
                 }}
               >
-                {user && (
-                  <Button
-                    size="large"
-                    variant="contained"
-                    onClick={() => handleAddToCart("Caeser Salad3")}
-                    sx={{
-                      backgroundColor: "#00a1a1",
-                      textTransform: "none",
-                      boxShadow: "none",
-                    }}
-                  >
-                    Add to Cart
-                  </Button>
-                )}
+                <Button
+                  size="large"
+                  variant="contained"
+                  onClick={() => handleAddToCart(3)}
+                  sx={{
+                    backgroundColor: "#00a1a1",
+                    textTransform: "none",
+                    boxShadow: "none",
+                  }}
+                >
+                  Add to Cart
+                </Button>
               </CardActions>
             </Card>
           </Grid>
