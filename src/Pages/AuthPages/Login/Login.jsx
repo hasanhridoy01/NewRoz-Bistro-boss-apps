@@ -1,4 +1,11 @@
-import { Button, Card, CardContent, Stack, TextField } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardContent,
+  CircularProgress,
+  Stack,
+  TextField,
+} from "@mui/material";
 import img from "../../../assets/others/authentication.png";
 import login from "../../../assets/others/authentication2.png";
 import IconButton from "@mui/material/IconButton";
@@ -7,12 +14,22 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 import "./Login.css";
-import { useState } from "react";
-import { Form, Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const Login = () => {
   //Show password section...................................!
+  const { signInUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const from = location.state?.from?.pathname || '/';
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -21,6 +38,8 @@ const Login = () => {
   //handleFormSubmit....................!
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
+    setLoading(true);
 
     //get user data.................!
     const email = e.target.email.value;
@@ -49,11 +68,44 @@ const Login = () => {
       e.target.password.value = "";
 
       // Now send the data to Firebase Auth
-      alert("Success!");
+      signInUser(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          //if find valid user............!
+          if (user) {
+            Swal.fire({
+              title: "User Login SuccessFully!",
+              showClass: {
+                popup: `
+                animate__animated
+                animate__fadeInUp
+                animate__faster
+              `,
+              },
+              hideClass: {
+                popup: `
+                animate__animated
+                animate__fadeOutDown
+                animate__faster
+              `,
+              },
+            });
+            navigate(from, {replace: true});
+            setLoading(false);
+          }
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          setError(errorMessage);
+        });
     }
   };
   return (
     <div>
+      <Helmet>
+        <title>Bistro Boss | Login Page</title>
+      </Helmet>
       <div
         className=""
         style={{
@@ -228,13 +280,26 @@ const Login = () => {
                         variant="contained"
                         size="large"
                         type="submit"
+                        disabled={loading}
                         sx={{
                           backgroundColor: "#00a1a1",
                           boxShadow: "2px 4px 6px rgba(0, 0, 0, 0.4)",
                           textTransform: "none",
+                          color: "#fff",
+                          "&:hover": {
+                            backgroundColor: "#00a1a1",
+                            boxShadow: "2px 4px 6px rgba(0, 0, 0, 0.4)",
+                          },
                         }}
                       >
-                        Login
+                        {loading ? (
+                          <CircularProgress
+                            size={24}
+                            sx={{ color: "#00a1a1" }}
+                          />
+                        ) : (
+                          "Login"
+                        )}
                       </Button>
                     </div>
                   </Form>

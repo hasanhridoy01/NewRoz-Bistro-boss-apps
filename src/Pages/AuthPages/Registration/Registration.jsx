@@ -5,12 +5,20 @@ import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useState } from "react";
-import { Form, Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Form, Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import CircularProgress from '@mui/material/CircularProgress';
+import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const Registration = () => {
   //Show password section...................................!
   const [showPassword, setShowPassword] = useState(false);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -19,6 +27,8 @@ const Registration = () => {
   //handleSubmit....................!
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setLoading(true);
 
     // Get user data
     const name = e.target.name.value;
@@ -51,11 +61,47 @@ const Registration = () => {
       e.target.password.value = "";
 
       // Now send the data to Firebase Auth
-      alert("Success!");
+      createUser(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          updateUserProfile(name)
+            .then(() => {
+              Swal.fire({
+                title: "User Registration SuccessFully!",
+                showClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `
+                },
+                hideClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `
+                }
+              });
+              navigate("/login");
+              setLoading(false);
+            })
+            .catch((error) => {
+              console.log(error);
+              setError(error);
+            });
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          setError(errorMessage);
+        });
     }
   };
   return (
     <div>
+      <Helmet>
+        <title>Bistro Boss | Registration Page</title>
+      </Helmet>
       <div
         className=""
         style={{
@@ -70,7 +116,7 @@ const Registration = () => {
         <div
           className=""
           style={{
-            height: "505px",
+            height: "513px",
             width: "800px",
             backgroundImage: `url(${img})`,
             display: "flex",
@@ -107,6 +153,8 @@ const Registration = () => {
                   >
                     Registration
                   </h4>
+
+                  <p style={{ color: "red" }}>{error}</p>
 
                   <Form onSubmit={handleSubmit}>
                     <div
@@ -265,13 +313,23 @@ const Registration = () => {
                         variant="contained"
                         size="large"
                         type="submit"
+                        disabled={loading}
                         sx={{
                           backgroundColor: "#00a1a1",
                           boxShadow: "2px 4px 6px rgba(0, 0, 0, 0.4)",
                           textTransform: "none",
+                          color: "#fff",
+                          "&:hover": {
+                            backgroundColor: "#00a1a1",
+                            boxShadow: "2px 4px 6px rgba(0, 0, 0, 0.4)",
+                          },
                         }}
                       >
-                        Registration
+                        {loading ? (
+                          <CircularProgress size={24} sx={{ color: '#00a1a1' }} />
+                        ) : (
+                          "Registration"
+                        )}
                       </Button>
                     </div>
                   </Form>

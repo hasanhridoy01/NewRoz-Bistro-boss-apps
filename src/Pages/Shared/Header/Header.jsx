@@ -12,15 +12,18 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //Drawer Import...................!
 import Drawer from "@mui/material/Drawer";
 import { Stack } from "@mui/material";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const Header = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { signOutUser, user } = React.useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -83,6 +86,18 @@ const Header = () => {
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
+  };
+
+  //handleLogOut....................!
+  const handleLogOut = (e) => {
+    e.preventDefault();
+
+    //SignOut............!
+    signOutUser()
+      .then(() => {
+        navigate("/login");
+      })
+      .then((error) => console.log(error));
   };
 
   const DrawerList = (
@@ -362,36 +377,58 @@ const Header = () => {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                <MenuItem sx={{ padding: "20px" }}>
-                  <Stack spacing={2}>
-                    <Typography textAlign="left">Profile</Typography>
-                    <Typography textAlign="left">Account</Typography>
-                    <Typography textAlign="left">Dashboard</Typography>
-                    <Typography textAlign="left">Logout</Typography>
-                  </Stack>
-                </MenuItem>
-              </Menu>
+              {user ? (
+                <>
+                  <Tooltip title="Open settings">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                      <Avatar
+                        alt="Remy Sharp"
+                        src="/static/images/avatar/2.jpg"
+                      />
+                    </IconButton>
+                  </Tooltip>
+                  <Menu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    <MenuItem sx={{ padding: "10px 16px" }}>
+                      <Stack spacing={2}>
+                        <Typography textAlign="left" onClick={handleLogOut}>
+                          Logout
+                        </Typography>
+                      </Stack>
+                    </MenuItem>
+                  </Menu>
+                </>
+              ) : (
+                <Link to="/login">
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "yellow",
+                      color: "red",
+                      "&:hover": {
+                        backgroundColor: "red",
+                        color: "yellow",
+                      },
+                    }}
+                  >
+                    Login
+                  </Button>
+                </Link>
+              )}
             </Box>
           </Toolbar>
         </Container>

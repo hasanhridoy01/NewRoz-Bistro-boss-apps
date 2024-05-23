@@ -13,8 +13,16 @@ import {
 
 import img1 from "../../assets/home/product-5-370x247.jpg";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const ChefRecommend = () => {
+  //check user...............!
+  const { user } = useAuth();
+
+  //Handle Add to Cart.............!
+  const handleAddToCart = (name) => {
+    console.log(name);
+  };
   return (
     <div>
       <Container style={{ marginBottom: "100px" }}>
@@ -60,7 +68,7 @@ const ChefRecommend = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
-                  Caeser Salad
+                  Caeser Salad1
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
@@ -73,17 +81,20 @@ const ChefRecommend = () => {
                   marginLeft: "10px",
                 }}
               >
-                <Button
-                  size="large"
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#00a1a1",
-                    textTransform: "none",
-                    boxShadow: "none",
-                  }}
-                >
-                  Add to Cart
-                </Button>
+                {user && (
+                  <Button
+                    size="large"
+                    variant="contained"
+                    onClick={() => handleAddToCart("Caeser Salad1")}
+                    sx={{
+                      backgroundColor: "#00a1a1",
+                      textTransform: "none",
+                      boxShadow: "none",
+                    }}
+                  >
+                    Add to Cart
+                  </Button>
+                )}
               </CardActions>
             </Card>
           </Grid>
@@ -96,7 +107,7 @@ const ChefRecommend = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
-                  Caeser Salad
+                  Caeser Salad2
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
@@ -109,17 +120,20 @@ const ChefRecommend = () => {
                   marginLeft: "10px",
                 }}
               >
-                <Button
-                  size="large"
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#00a1a1",
-                    textTransform: "none",
-                    boxShadow: "none",
-                  }}
-                >
-                  Add to Cart
-                </Button>
+                {user && (
+                  <Button
+                    size="large"
+                    variant="contained"
+                    onClick={() => handleAddToCart("Caeser Salad2")}
+                    sx={{
+                      backgroundColor: "#00a1a1",
+                      textTransform: "none",
+                      boxShadow: "none",
+                    }}
+                  >
+                    Add to Cart
+                  </Button>
+                )}
               </CardActions>
             </Card>
           </Grid>
@@ -132,7 +146,7 @@ const ChefRecommend = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
-                  Caeser Salad
+                  Caeser Salad3
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
@@ -145,17 +159,20 @@ const ChefRecommend = () => {
                   marginLeft: "10px",
                 }}
               >
-                <Button
-                  size="large"
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#00a1a1",
-                    textTransform: "none",
-                    boxShadow: "none",
-                  }}
-                >
-                  Add to Cart
-                </Button>
+                {user && (
+                  <Button
+                    size="large"
+                    variant="contained"
+                    onClick={() => handleAddToCart("Caeser Salad3")}
+                    sx={{
+                      backgroundColor: "#00a1a1",
+                      textTransform: "none",
+                      boxShadow: "none",
+                    }}
+                  >
+                    Add to Cart
+                  </Button>
+                )}
               </CardActions>
             </Card>
           </Grid>
