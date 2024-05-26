@@ -18,6 +18,13 @@ import Shop2Icon from "@mui/icons-material/Shop2";
 import HouseIcon from "@mui/icons-material/House";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import Home from "./Admin/Home";
+import AllItems from "./Admin/AllItems";
+import ManageItem from "./Admin/ManageItem";
+import AllUser from "./Admin/AllUser";
+import Users from "./Users/Users";
+import Booking from "./Users/Booking";
+import Shop from "./Users/Shop";
+import Contact from "./Users/Contact";
 
 const drawerWidth = 290;
 
@@ -119,13 +126,13 @@ function ResponsiveDrawer(props) {
   const toolbarContent = selectedItem !== null && (
     <Toolbar>
       {selectedItem === 0 && <div> <Home /> </div>}
-      {selectedItem === 1 && <div>Content of Item 1</div>}
-      {selectedItem === 2 && <div>Content of Item 2</div>}
-      {selectedItem === 3 && <div>Content of Item 3</div>}
-      {selectedItem === 4 && <div>Content of Item 4</div>}
-      {selectedItem === 5 && <div>Content of Item 5</div>}
-      {selectedItem === 6 && <div>Content of Item 6</div>}
-      {selectedItem === 7 && <div>Content of Item 7</div>}
+      {selectedItem === 1 && <div> <AllItems /> </div>}
+      {selectedItem === 2 && <div> <ManageItem /> </div>}
+      {selectedItem === 3 && <div> <AllUser /> </div>}
+      {selectedItem === 4 && <div> <Users /> </div>}
+      {selectedItem === 5 && <div> <Booking /> </div>}
+      {selectedItem === 6 && <div> <Shop /> </div>}
+      {selectedItem === 7 && <div> <Contact /> </div>}
     </Toolbar>
   );
 
@@ -154,7 +161,7 @@ function ResponsiveDrawer(props) {
         <div
           style={{ display: "flex", justifyContent: "center", width: "100%" }}
         >
-          <Button
+          {/* <Button
             variant="contained"
             size="large"
             onClick={handleNewMenu}
@@ -176,7 +183,7 @@ function ResponsiveDrawer(props) {
             <Typography variant="body1" sx={{ textTransform: "none" }}>
               Create New
             </Typography>
-          </Button>
+          </Button> */}
         </div>
       </div>
       <Toolbar sx={{ marginTop: "38px" }}>
@@ -271,7 +278,7 @@ function ResponsiveDrawer(props) {
                 }}
               >
                 {" "}
-                Menu
+                Booking
               </MenuItem>
               <MenuItem
                 icon={<Shop2Icon />}

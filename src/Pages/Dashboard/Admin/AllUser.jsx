@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 import { Button, Divider, Stack, Typography } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 
-const Home = () => {
+const AllUser = () => {
   return (
     <div style={{ padding: "30px", paddingLeft: "20px" }}>
       <Helmet>
@@ -158,4 +158,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AllUser;

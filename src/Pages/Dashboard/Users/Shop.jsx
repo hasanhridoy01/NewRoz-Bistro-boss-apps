@@ -8,16 +8,18 @@ import Paper from "@mui/material/Paper";
 import { Button, Divider, Stack, Typography } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 
-const Home = () => {
-  return (
-    <div style={{ padding: "30px", paddingLeft: "20px" }}>
+import img from "../../../assets/reservation/wood-grain-pattern-gray1x.png";
+
+const Shop = () => {
+    return (
+        <div style={{ padding: "30px", paddingLeft: "20px" }}>
       <Helmet>
-        <title>Bistro Boss | Admin Home Page</title>
+        <title>Bistro Boss | Shop Page</title>
       </Helmet>
       <div style={{ padding: "20px", marginTop: "0px" }}>
         <Stack rowGap={2} sx={{ margin: "auto" }}>
           <Typography sx={{ textAlign: "center", color: "gold" }}>
-            ---Resources!---
+            ---Let's see!---
           </Typography>
           <div
             className=""
@@ -32,7 +34,7 @@ const Home = () => {
               }}
               variant="h5"
             >
-              MANAGE ALL USERS
+              MANAGE SHOP
             </Typography>
             <Divider sx={{ backgroundColor: "#EEEEF3", height: "4px" }} />
           </div>
@@ -42,31 +44,39 @@ const Home = () => {
         <Table sx={{ minWidth: "1100px" }} aria-label="caption table">
           <TableHead>
             <TableRow>
-              <TableCell>Display Name</TableCell>
-              <TableCell align="left">Email</TableCell>
-              <TableCell align="left">Role</TableCell>
-              <TableCell align="center">Delete</TableCell>
+              <TableCell>ID</TableCell>
+              <TableCell align="left">Item Image</TableCell>
+              <TableCell align="left">Item Name</TableCell>
+              <TableCell align="center">Price</TableCell>
+              <TableCell align="right">Action</TableCell>
               <TableCell align="right">Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             <TableRow>
               <TableCell component="th" scope="row">
-                Zahid Hasan Hridoy
+                1
               </TableCell>
-              <TableCell align="left">hasanhridoy@gmail.com</TableCell>
-              <TableCell align="left">User</TableCell>
-              <TableCell align="center">
+              <TableCell align="left">
+                <img
+                  style={{ height: "30px", width: "60px" }}
+                  src={img}
+                  alt=""
+                />
+              </TableCell>
+              <TableCell align="left">Roast Duck Breast</TableCell>
+              <TableCell align="center">$90</TableCell>
+              <TableCell align="right" style={{ paddingRight: "15px" }}>
                 <Button
                   size="small"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#ff0052",
+                    backgroundColor: "#d1a054",
                     boxShadow: "none",
                     textTransform: "none",
                   }}
                 >
-                  Delete
+                  Edit
                 </Button>
               </TableCell>
               <TableCell align="right" style={{ paddingRight: "15px" }}>
@@ -74,33 +84,40 @@ const Home = () => {
                   size="small"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#00a1a1",
+                    backgroundColor: "#FF0052",
                     boxShadow: "none",
                     textTransform: "none",
                   }}
                 >
-                  Confirm
+                  Delete
                 </Button>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell component="th" scope="row">
-                Zahid Hasan Hridoy
+                1
               </TableCell>
-              <TableCell align="left">hasanhridoy@gmail.com</TableCell>
-              <TableCell align="left">User</TableCell>
-              <TableCell align="center">
+              <TableCell align="left">
+                <img
+                  style={{ height: "30px", width: "60px" }}
+                  src={img}
+                  alt=""
+                />
+              </TableCell>
+              <TableCell align="left">Roast Duck Breast</TableCell>
+              <TableCell align="center">$90</TableCell>
+              <TableCell align="right" style={{ paddingRight: "15px" }}>
                 <Button
                   size="small"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#ff0052",
+                    backgroundColor: "#d1a054",
                     boxShadow: "none",
                     textTransform: "none",
                   }}
                 >
-                  Delete
+                  Edit
                 </Button>
               </TableCell>
               <TableCell align="right" style={{ paddingRight: "15px" }}>
@@ -108,33 +125,40 @@ const Home = () => {
                   size="small"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#00a1a1",
+                    backgroundColor: "#FF0052",
                     boxShadow: "none",
                     textTransform: "none",
                   }}
                 >
-                  Confirm
+                  Delete
                 </Button>
               </TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell component="th" scope="row">
-                Zahid Hasan Hridoy
+                1
               </TableCell>
-              <TableCell align="left">hasanhridoy@gmail.com</TableCell>
-              <TableCell align="left">User</TableCell>
-              <TableCell align="center">
+              <TableCell align="left">
+                <img
+                  style={{ height: "30px", width: "60px" }}
+                  src={img}
+                  alt=""
+                />
+              </TableCell>
+              <TableCell align="left">Roast Duck Breast</TableCell>
+              <TableCell align="center">$9</TableCell>
+              <TableCell align="right" style={{ paddingRight: "15px" }}>
                 <Button
                   size="small"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#ff0052",
+                    backgroundColor: "#d1a054",
                     boxShadow: "none",
                     textTransform: "none",
                   }}
                 >
-                  Delete
+                  Edit
                 </Button>
               </TableCell>
               <TableCell align="right" style={{ paddingRight: "15px" }}>
@@ -142,12 +166,12 @@ const Home = () => {
                   size="small"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#00a1a1",
+                    backgroundColor: "#FF0052",
                     boxShadow: "none",
                     textTransform: "none",
                   }}
                 >
-                  Confirm
+                  Delete
                 </Button>
               </TableCell>
             </TableRow>
@@ -155,7 +179,7 @@ const Home = () => {
         </Table>
       </TableContainer>
     </div>
-  );
+    );
 };
 
-export default Home;
+export default Shop;

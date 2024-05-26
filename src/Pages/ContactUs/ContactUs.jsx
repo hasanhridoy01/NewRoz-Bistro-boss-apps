@@ -27,7 +27,6 @@ const ContactUs = () => {
 
   return (
     <div>
-      
       <Helmet>
         <title>Bistro Boss | Contact Page</title>
       </Helmet>
@@ -245,15 +244,47 @@ const ContactUs = () => {
             <TextField
               placeholder="Enter Your Email"
               fullWidth
-              sx={{ backgroundColor: "#fff", border: "none", marginTop: "7px" }}
+              sx={{
+                backgroundColor: "#fff",
+                border: "none",
+                marginTop: "7px",
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    border: "none",
+                  },
+                },
+              }}
             />
           </Grid>
-          <Grid item lg={12} md={12} sm={12} xs={12} sx={{ marginTop: "5px" }}>
+          <Grid
+            item
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
+            sx={{
+              marginTop: "5px",
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  border: "none",
+                },
+              },
+            }}
+          >
             <label htmlFor="">Phone</label>
             <TextField
               placeholder="Enter Your Phone"
               fullWidth
-              sx={{ backgroundColor: "#fff", border: "none", marginTop: "7px" }}
+              sx={{
+                backgroundColor: "#fff",
+                border: "none",
+                marginTop: "7px",
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    border: "none",
+                  },
+                },
+              }}
             />
           </Grid>
           <Grid item lg={12} md={12} sm={12} xs={12} sx={{ marginTop: "5px" }}>
