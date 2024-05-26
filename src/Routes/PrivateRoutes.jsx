@@ -10,7 +10,7 @@ const PrivateRoutes = ({ children }) => {
   const location = useLocation();
 
   if(loading){
-    return <CircularProgress sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
+    return <CircularProgress sx={{ margin: 'auto' }} />
   }
 
   if (user) {

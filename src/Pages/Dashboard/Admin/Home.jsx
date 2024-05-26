@@ -32,7 +32,7 @@ const Home = () => {
               }}
               variant="h5"
             >
-              MANAGE ALL USERS
+              CUSTOMIZE ALL USERS
             </Typography>
             <Divider sx={{ backgroundColor: "#EEEEF3", height: "4px" }} />
           </div>
@@ -45,7 +45,7 @@ const Home = () => {
               <TableCell>Display Name</TableCell>
               <TableCell align="left">Email</TableCell>
               <TableCell align="left">Role</TableCell>
-              <TableCell align="center">Delete</TableCell>
+              <TableCell align="center">Edit</TableCell>
               <TableCell align="right">Action</TableCell>
             </TableRow>
           </TableHead>
@@ -61,12 +61,12 @@ const Home = () => {
                   size="small"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#ff0052",
+                    backgroundColor: "#d1a054",
                     boxShadow: "none",
                     textTransform: "none",
                   }}
                 >
-                  Delete
+                  Edit
                 </Button>
               </TableCell>
               <TableCell align="right" style={{ paddingRight: "15px" }}>
@@ -95,12 +95,12 @@ const Home = () => {
                   size="small"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#ff0052",
+                    backgroundColor: "#d1a054",
                     boxShadow: "none",
                     textTransform: "none",
                   }}
                 >
-                  Delete
+                  Edit
                 </Button>
               </TableCell>
               <TableCell align="right" style={{ paddingRight: "15px" }}>
@@ -129,12 +129,12 @@ const Home = () => {
                   size="small"
                   variant="contained"
                   sx={{
-                    backgroundColor: "#ff0052",
+                    backgroundColor: "#d1a054",
                     boxShadow: "none",
                     textTransform: "none",
                   }}
                 >
-                  Delete
+                  Edit
                 </Button>
               </TableCell>
               <TableCell align="right" style={{ paddingRight: "15px" }}>

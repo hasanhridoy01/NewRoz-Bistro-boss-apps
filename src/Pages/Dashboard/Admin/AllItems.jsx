@@ -44,7 +44,7 @@ const AllItems = () => {
         sx={{
           marginTop: "0px",
           backgroundColor: "#f5f5f5",
-          marginBottom: "100px",
+          marginBottom: "60px",
           padding: {
             xs: "16px", // Padding for extra-small screens
             sm: "16px", // Padding for small screens
