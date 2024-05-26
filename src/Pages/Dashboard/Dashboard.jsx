@@ -125,14 +125,54 @@ function ResponsiveDrawer(props) {
 
   const toolbarContent = selectedItem !== null && (
     <Toolbar>
-      {selectedItem === 0 && <div> <Home /> </div>}
-      {selectedItem === 1 && <div> <AllItems /> </div>}
-      {selectedItem === 2 && <div> <ManageItem /> </div>}
-      {selectedItem === 3 && <div> <AllUser /> </div>}
-      {selectedItem === 4 && <div> <Users /> </div>}
-      {selectedItem === 5 && <div> <Booking /> </div>}
-      {selectedItem === 6 && <div> <Shop /> </div>}
-      {selectedItem === 7 && <div> <Contact /> </div>}
+      {selectedItem === 0 && (
+        <div>
+          {" "}
+          <Home />{" "}
+        </div>
+      )}
+      {selectedItem === 1 && (
+        <div>
+          {" "}
+          <AllItems />{" "}
+        </div>
+      )}
+      {selectedItem === 2 && (
+        <div>
+          {" "}
+          <ManageItem />{" "}
+        </div>
+      )}
+      {selectedItem === 3 && (
+        <div>
+          {" "}
+          <AllUser />{" "}
+        </div>
+      )}
+      {selectedItem === 4 && (
+        <div>
+          {" "}
+          <Users />{" "}
+        </div>
+      )}
+      {selectedItem === 5 && (
+        <div>
+          {" "}
+          <Booking />{" "}
+        </div>
+      )}
+      {selectedItem === 6 && (
+        <div>
+          {" "}
+          <Shop />{" "}
+        </div>
+      )}
+      {selectedItem === 7 && (
+        <div>
+          {" "}
+          <Contact />{" "}
+        </div>
+      )}
     </Toolbar>
   );
 

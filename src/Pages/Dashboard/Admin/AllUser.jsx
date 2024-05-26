@@ -7,8 +7,18 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button, Divider, Stack, Typography } from "@mui/material";
 import { Helmet } from "react-helmet-async";
+import { useUser } from "../../../utilities/getUser";
 
 const AllUser = () => {
+  const { user, loading, error, loadData } = useUser();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
   return (
     <div style={{ padding: "30px", paddingLeft: "20px" }}>
       <Helmet>
@@ -44,13 +54,49 @@ const AllUser = () => {
             <TableRow>
               <TableCell>Display Name</TableCell>
               <TableCell align="left">Email</TableCell>
-              <TableCell align="left">Role</TableCell>
+              <TableCell align="left">Address</TableCell>
               <TableCell align="center">Delete</TableCell>
               <TableCell align="right">Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
+            {user?.map((u) => (
+              <TableRow key={u.id}>
+                <TableCell component="th" scope="row">
+                  {u.name}
+                </TableCell>
+                <TableCell align="left">{u.email}</TableCell>
+                <TableCell align="left">{u.address.city}</TableCell>
+                <TableCell align="center">
+                  <Button
+                    size="small"
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#ff0052",
+                      boxShadow: "none",
+                      textTransform: "none",
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
+                <TableCell align="right" style={{ paddingRight: "15px" }}>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#00a1a1",
+                      boxShadow: "none",
+                      textTransform: "none",
+                    }}
+                  >
+                    Confirm
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+
+            {/* <TableRow>
               <TableCell component="th" scope="row">
                 Zahid Hasan Hridoy
               </TableCell>
@@ -116,41 +162,7 @@ const AllUser = () => {
                   Confirm
                 </Button>
               </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell component="th" scope="row">
-                Zahid Hasan Hridoy
-              </TableCell>
-              <TableCell align="left">hasanhridoy@gmail.com</TableCell>
-              <TableCell align="left">User</TableCell>
-              <TableCell align="center">
-                <Button
-                  size="small"
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#ff0052",
-                    boxShadow: "none",
-                    textTransform: "none",
-                  }}
-                >
-                  Delete
-                </Button>
-              </TableCell>
-              <TableCell align="right" style={{ paddingRight: "15px" }}>
-                <Button
-                  size="small"
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#00a1a1",
-                    boxShadow: "none",
-                    textTransform: "none",
-                  }}
-                >
-                  Confirm
-                </Button>
-              </TableCell>
-            </TableRow>
+            </TableRow> */}
           </TableBody>
         </Table>
       </TableContainer>
