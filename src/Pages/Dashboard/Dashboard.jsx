@@ -11,13 +11,13 @@ import Typography from "@mui/material/Typography";
 import { Avatar, Button, Divider, Stack, Switch } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import HomeIcon from "@mui/icons-material/Home";
-import { styled, alpha } from "@mui/material/styles";
 import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 import PeopleIcon from "@mui/icons-material/People";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import Shop2Icon from "@mui/icons-material/Shop2";
 import HouseIcon from "@mui/icons-material/House";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+import Home from "./Admin/Home";
 
 const drawerWidth = 290;
 
@@ -118,7 +118,7 @@ function ResponsiveDrawer(props) {
 
   const toolbarContent = selectedItem !== null && (
     <Toolbar>
-      {selectedItem === 0 && <div>Content of Item 0</div>}
+      {selectedItem === 0 && <div> <Home /> </div>}
       {selectedItem === 1 && <div>Content of Item 1</div>}
       {selectedItem === 2 && <div>Content of Item 2</div>}
       {selectedItem === 3 && <div>Content of Item 3</div>}
@@ -131,12 +131,16 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div style={{ overflow: "hidden" }}>
-      <Toolbar sx={{ paddingRight: '0px' }}>
-        <Typography variant="body1" sx={{ paddingRight: '2px' }}>
+      <Toolbar sx={{ paddingRight: "0px" }}>
+        <Typography variant="body1" sx={{ paddingRight: "2px" }}>
           <span style={{ color: "#ff0052" }}>Bistro</span> Boss{" "}
           <span style={{ color: "#00a1a1" }}>Restaurant</span>
         </Typography>
-        <Switch sx={{ marginLeft: '15px', marginRight: '0px' }} onClick={() => setCollapsed(!collapsed)} {...label} />
+        <Switch
+          sx={{ marginLeft: "15px", marginRight: "0px" }}
+          onClick={() => setCollapsed(!collapsed)}
+          {...label}
+        />
       </Toolbar>
       <Divider />
       <div
@@ -158,10 +162,10 @@ function ResponsiveDrawer(props) {
             tabIndex={0}
             sx={{
               backgroundColor: "#ff0052",
-              marginLeft: '6px',
+              marginLeft: "6px",
               width: "250px",
               border: "none",
-              boxShadow: 'none',
+              boxShadow: "none",
               "&:hover": {
                 backgroundColor: "#fff",
                 color: "#000",
@@ -175,7 +179,7 @@ function ResponsiveDrawer(props) {
           </Button>
         </div>
       </div>
-      <Toolbar sx={{ marginTop: "38px", }}>
+      <Toolbar sx={{ marginTop: "38px" }}>
         <Sidebar backgroundColor="#fff" collapsed={collapsed}>
           <Menu sx={{ backgroundColor: "#fff" }} transitionDuration={500}>
             <Stack spacing={2}>
