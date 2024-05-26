@@ -124,7 +124,7 @@ const Login = () => {
         <div
           className=""
           style={{
-            height: "400px",
+            height: "410px",
             width: "800px",
             backgroundImage: `url(${img})`,
             display: "flex",
@@ -141,7 +141,7 @@ const Login = () => {
                 gap: "20px",
               }}
             >
-              <div className="" style={{ background: "none" }}>
+              <div className="" style={{ background: "none", }}>
                 <img className="img" src={login} alt="" />
               </div>
               <div

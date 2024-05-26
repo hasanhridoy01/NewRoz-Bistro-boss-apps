@@ -123,7 +123,7 @@ const Registration = () => {
         <div
           className=""
           style={{
-            height: "513px",
+            height: "522px",
             width: "800px",
             backgroundImage: `url(${img})`,
             display: "flex",
@@ -344,7 +344,7 @@ const Registration = () => {
               </div>
               <div className="" style={{ background: "none" }}>
                 <img
-                  style={{ height: "300px", width: "400px", marginTop: "90px" }}
+                  style={{ height: "300px", width: "400px", marginTop: "127px" }}
                   src={login}
                   alt=""
                 />
