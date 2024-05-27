@@ -26,7 +26,7 @@ const PrivateRoutes = ({ children }) => {
           height: "100vh",
         }}
       >
-        <CircularProgress />
+        <CircularProgress size={50} />
       </Box>
     );
   }
