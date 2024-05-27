@@ -24,7 +24,7 @@ const useAxiosSecure = () => {
     }
   );
 
-  //response interceptor.................................!
+  //response interceptor to add authorization header.......!
   axiosSecure.interceptors.response.use(
     function (response) {
       return response;

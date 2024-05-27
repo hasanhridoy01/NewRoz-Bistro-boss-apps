@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useAxiosSecure from "../hooks/useAxios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export const useUser = () => {
   const [user, setUser] = useState([]);
@@ -8,6 +8,7 @@ export const useUser = () => {
 
   //get axios hooks...............!
   const axiosSecure = useAxiosSecure();
+  console.log(axiosSecure);
 
   const loadData = async () => {
     setLoading(true);
