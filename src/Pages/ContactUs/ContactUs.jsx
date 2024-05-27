@@ -236,7 +236,16 @@ const ContactUs = () => {
             <TextField
               placeholder="Enter Your Name"
               fullWidth
-              sx={{ backgroundColor: "#fff", border: "none", marginTop: "7px" }}
+              sx={{
+                backgroundColor: "#fff",
+                border: "none",
+                marginTop: "7px",
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    border: "none",
+                  },
+                },
+              }}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -303,6 +312,11 @@ const ContactUs = () => {
                 "& .MuiInputBase-input": {
                   height: "100px",
                   padding: "0 14px",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    border: "none",
+                  },
                 },
               }}
             />
