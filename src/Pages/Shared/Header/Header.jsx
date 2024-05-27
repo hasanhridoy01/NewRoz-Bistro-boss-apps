@@ -366,8 +366,8 @@ const Header = () => {
                   background: "yellow",
                   color: "red",
                   "&:hover": {
-                    background: "red", // Change this to the desired hover background color
-                    color: "yellow", // Change this to the desired hover text color
+                    background: "red", 
+                    color: "yellow",
                   },
                 }}
               >
