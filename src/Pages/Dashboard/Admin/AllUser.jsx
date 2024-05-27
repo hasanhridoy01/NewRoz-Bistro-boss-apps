@@ -5,15 +5,27 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Button, Divider, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 import { useUser } from "../../../utilities/getUser";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const AllUser = () => {
   const { user, loading, error, loadData } = useUser();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 
   if (error) {
@@ -52,7 +64,7 @@ const AllUser = () => {
         <Table sx={{ minWidth: "1100px" }} aria-label="caption table">
           <TableHead>
             <TableRow>
-              <TableCell>Display Name</TableCell>
+              <TableCell>Name</TableCell>
               <TableCell align="left">Email</TableCell>
               <TableCell align="left">Address</TableCell>
               <TableCell align="center">Delete</TableCell>
@@ -60,7 +72,7 @@ const AllUser = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {user?.map((u) => (
+            { user?.map((u) => (
               <TableRow key={u.id}>
                 <TableCell component="th" scope="row">
                   {u.name}

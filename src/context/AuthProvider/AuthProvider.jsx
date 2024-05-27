@@ -14,7 +14,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   //create a new user form firebase....................!
   const createUser = (email, password) => {
@@ -47,18 +47,18 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-  //on Auth Change.................!
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, currentUser => {
+    // Subscribe to the auth state changes
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
 
-    //return on Auth Person Data...........!
+    // Cleanup subscription on component unmount
     return () => {
       unSubscribe();
     };
-  },[])
+  }, []);
 
   //send info and data form components.......................!
   const authInfo = {
@@ -67,7 +67,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     signInUser,
     signOutUser,
-    updateUserProfile
+    updateUserProfile,
   };
 
   return (
