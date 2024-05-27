@@ -8,6 +8,7 @@ import {
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../../../firebase.init";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 //create context on the site..................!
 export const AuthContext = createContext(null);
@@ -51,6 +52,20 @@ const AuthProvider = ({ children }) => {
     // Subscribe to the auth state changes
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      console.log("current user", currentUser);
+      if(currentUser){
+        //get token and store client side............!
+        const userInfo = { email: currentUser.email };
+        axios.post('/jwt', userInfo)
+        .then(res => {
+          if(res.data.token){
+            localStorage.setItem('access-token', res.data.token);
+          }
+        });
+      }else{
+        //do some thing.......!
+        localStorage.removeItem('access-token');
+      }
       setLoading(false);
     });
 
