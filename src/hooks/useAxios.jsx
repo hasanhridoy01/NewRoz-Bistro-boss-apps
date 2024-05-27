@@ -11,7 +11,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
   const { signOutUser } = useContext(AuthContext);
   
-  //request interceptor to add authorization header.............!
+  //request interceptor to add authorization header........!
   axiosSecure.interceptors.request.use(
     function (config) {
       //get token..........!
@@ -34,14 +34,14 @@ const useAxiosSecure = () => {
       // status validation.............!
       if (status == 401 || status == 403) {
         await signOutUser();
-        // navigate to login page................!
+        // navigate to login page......!
         navigate("/login");
       }
       return Promise.reject(error);
     }
   );
 
-  //return this...................!
+  //return this...............!
   return axiosSecure;
 };
 
