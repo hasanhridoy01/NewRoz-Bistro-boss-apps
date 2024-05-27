@@ -10,13 +10,18 @@ export const axiosSecure = axios.create({
 const useAxiosSecure = () => {
   const navigate = useNavigate();
   const { signOutUser } = useContext(AuthContext);
-  
+
   //request interceptor to add authorization header........!
   axiosSecure.interceptors.request.use(
     function (config) {
-      //get token..........!
+      // Get token from local storage
       const token = localStorage.getItem("access-token");
-      config.headers.authorization = `Bearer ${token}`;
+
+      // If the token exists, set the authorization header
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+
       return config;
     },
     function (error) {
@@ -30,13 +35,17 @@ const useAxiosSecure = () => {
       return response;
     },
     async function (error) {
-      const status = error.response.status;
-      // status validation.............!
-      if (status == 401 || status == 403) {
+      // Extract the response status
+      const status = error.response ? error.response.status : null;
+
+      // Handle 401 and 403 status codes
+      if (status === 401 || status === 403) {
         await signOutUser();
-        // navigate to login page......!
+        // Navigate to the login page
         navigate("/login");
       }
+
+      // Always return the error so it can be handled elsewhere if needed
       return Promise.reject(error);
     }
   );
