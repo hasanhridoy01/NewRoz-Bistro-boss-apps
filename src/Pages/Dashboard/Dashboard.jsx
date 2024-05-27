@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Avatar, Button, Divider, Stack, Switch } from "@mui/material";
+import { Divider, Stack, Switch } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import HomeIcon from "@mui/icons-material/Home";
 import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
@@ -56,13 +56,6 @@ function ResponsiveDrawer(props) {
     if (!isClosing) {
       setMobileOpen(!mobileOpen);
     }
-  };
-
-  // handleNewMenu.....................!
-  const handleNewMenu = (e) => {
-    e.preventDefault();
-
-    alert();
   };
 
   //set listItem content on toolBar....................!
