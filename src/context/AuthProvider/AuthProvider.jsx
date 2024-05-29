@@ -48,23 +48,44 @@ const AuthProvider = ({ children }) => {
     });
   };
 
+  // Function to set a cookie with max-age
+  function setCookie(name, value, maxAgeInSeconds) {
+    document.cookie = `${name}=${value}; max-age=${maxAgeInSeconds}; path=/`;
+  }
+
+  // Example usage
+  setCookie("jwt", "your_jwt_token", 3600); 
+
   useEffect(() => {
     // Subscribe to the auth state changes
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log("current user", currentUser);
-      if(currentUser){
+      if (currentUser) {
         //get token and store client side............!
         const userInfo = { email: currentUser.email };
-        axios.post('/jwt', userInfo)
-        .then(res => {
-          if(res.data.token){
-            localStorage.setItem('access-token', res.data.token);
+
+        //set local Storage.............!
+        axios.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
           }
         });
-      }else{
+
+        axios
+          .post("/jwt", { withCredentials: true })
+          .then((response) => {
+            // Assuming the JWT token is returned in the response data
+            const jwtToken = response.data.token;
+
+            // Set the cookie with the JWT token and an expiration time (e.g., 1 hour)
+            setCookie("jwt", jwtToken, 3600); 
+          })
+          .catch((error) => {
+            console.error("Error during the POST request:", error);
+          });
+      } else {
         //do some thing.......!
-        localStorage.removeItem('access-token');
+        localStorage.removeItem("access-token");
       }
       setLoading(false);
     });
