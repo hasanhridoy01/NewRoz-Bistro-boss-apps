@@ -78,7 +78,7 @@ const Login = () => {
           //if find valid user............!
           if (user) {
             Swal.fire({
-              title: "User Login SuccessFully!",
+              title: `${user.displayName} Login SuccessFully!`,
               showClass: {
                 popup: `
                 animate__animated
@@ -141,7 +141,7 @@ const Login = () => {
                 gap: "20px",
               }}
             >
-              <div className="" style={{ background: "none", }}>
+              <div className="" style={{ background: "none" }}>
                 <img className="img" src={login} alt="" />
               </div>
               <div
@@ -154,16 +154,30 @@ const Login = () => {
                 }}
               >
                 <Stack spacing={2}>
-                  <h4
-                    style={{
-                      textAlign: "center",
-                      fontSize: "20px",
-                      fontFamily: "monospace",
-                      marginTop: "13px",
-                    }}
-                  >
-                    Login
-                  </h4>
+                  {error ? (
+                    <p
+                      style={{
+                        textAlign: "center",
+                        fontSize: "15px",
+                        fontFamily: "monospace",
+                        marginTop: "13px",
+                        color: 'red'
+                      }}
+                    >
+                      {error}
+                    </p>
+                  ) : (
+                    <h4
+                      style={{
+                        textAlign: "center",
+                        fontSize: "20px",
+                        fontFamily: "monospace",
+                        marginTop: "13px",
+                      }}
+                    >
+                      Login
+                    </h4>
+                  )}
 
                   <Form onSubmit={handleFormSubmit}>
                     <div
