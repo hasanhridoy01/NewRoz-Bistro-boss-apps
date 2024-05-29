@@ -161,7 +161,7 @@ const Login = () => {
                         fontSize: "15px",
                         fontFamily: "monospace",
                         marginTop: "13px",
-                        color: 'red'
+                        color: '#E80101'
                       }}
                     >
                       {error}
